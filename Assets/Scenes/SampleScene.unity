@@ -542,6 +542,7 @@ MonoBehaviour:
   skeletonNavMeshAgent: {fileID: 918878467}
   playerTransform: {fileID: 378456604}
   skeletonFollowPlayerScript: {fileID: 918878469}
+  walkingSpeed: 0.43
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class Skeleton_AI : MonoBehaviour
     public Transform playerTransform;
     public Skeleton_FollowPlayer skeletonFollowPlayerScript;
 
-    float walkingSpeed;
+    public float walkingSpeed;
 
     public void Start()
     {
