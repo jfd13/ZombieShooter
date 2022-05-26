@@ -16,7 +16,7 @@ public class Skeleton_HitPlayer : MonoBehaviour
     //-------------------------------------------------------------------------------------------------------------------------------
 
     static float distance; //Distance - used to calculate distance between skeleton and player
-    public int whichAnimationPlays; //Used to randomize which hit animation plays for specific skeleton
+    [HideInInspector] public int whichAnimationPlays; //Used to randomize which hit animation plays for specific skeleton
 
     //-------------------------------------------------------------------------------------------------------------------------------
 
