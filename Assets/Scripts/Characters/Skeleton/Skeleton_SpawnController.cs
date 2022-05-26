@@ -44,7 +44,7 @@ public class Skeleton_SpawnController : MonoBehaviour
         //Created a loop in which skeletons are saved so that pathing works
         for (int i = 0; i < 1; i++)
         {
-           skeletonClones.Add(skeletonGameObjectClone = Instantiate(skeletonGameObject, spawnerGameObject.transform.position, skeletonGameObject.transform.rotation));
+            skeletonClones.Add(skeletonGameObjectClone = Instantiate(skeletonGameObject, spawnerGameObject.transform.position, skeletonGameObject.transform.rotation));
         }
     }
 }

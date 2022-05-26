@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Skeleton_FollowPlayer : MonoBehaviour
 {
-    //Forward +, Backwards - | FROM SKELETON POSITION
-    //Right +, Left - | FROM SKELETON POSITION
 
     public Animator skeletonAnimator; //Animator from skeleton
     public Transform playerTransform; //Transform position of a player
@@ -18,21 +16,23 @@ public class Skeleton_FollowPlayer : MonoBehaviour
     //-------------------------------------------------------------------------------------------------------------------------------
 
     static float distance; //Distance - used to calculate distance between skeleton and player
-    static int whichAnimationPlays; //Used to randomize which hit animation plays for specific skeleton
+    public int whichAnimationPlays; //Used to randomize which hit animation plays for specific skeleton
 
     //-------------------------------------------------------------------------------------------------------------------------------
 
     public void Start()
     {
         //Randomize number which is used to determine which animation plays later
+        //I have 2 animations in the animator controller, thus playing it randomly on number 1 or number 2
         whichAnimationPlays = Random.Range(1, 3);
+
     }
 
     public void Update()
     {
         //Call components from a clone
-        skeletonAnimatorClone = this.GetComponent<Animator>();
         skeletonTransformClone = this.GetComponent<Transform>();
+        skeletonAnimatorClone = this.GetComponent<Animator>();
 
         //Call follow player method
         FollowPlayer(whichAnimationPlays);
@@ -65,7 +65,7 @@ public class Skeleton_FollowPlayer : MonoBehaviour
         else if (distance < 2f)
         {
             //If below 2 meters, stop walk/run animation
-            WalkingAnimations(false, 0, 0);
+            skeletonAnimatorClone.SetBool("Walking_Animations", false);
         }
     }
 }
