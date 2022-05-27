@@ -5,10 +5,7 @@ using UnityEngine;
 public class Skeleton_Dodge : MonoBehaviour
 {
     public Transform playerTransform; //Transform position of a player
-    public Transform skeletonTransform; //Transform position of skeleton
     public Animator skeletonAnimator; //Animator component from skeleton
-    public Rigidbody skeletonRigidbody; //Skeleton rigidbody
-    public Skeleton_SpawnController skeletonSpawnControllerScript; //Defining spawn controller script
     static Transform skeletonTransformClone; //Transform component from skeleton clone used to equate with its component
 
 

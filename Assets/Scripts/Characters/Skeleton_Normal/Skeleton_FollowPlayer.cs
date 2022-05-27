@@ -1,15 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Skeleton_FollowPlayer : MonoBehaviour
 {
 
-    public Animator skeletonAnimator; //Animator from skeleton
     public Transform playerTransform; //Transform position of a player
-    public Transform skeletonTransform; //Transform position of skeleton
-    public Rigidbody skeletonRigidbody; //Skeleton rigidbody
-    public Skeleton_SpawnController skeletonSpawnControllerScript; //Skeleton SpawnController script
     static Animator skeletonAnimatorClone; //Animator component of skeleton clone
     static Transform skeletonTransformClone; //Transform component of skeleton clone
 
