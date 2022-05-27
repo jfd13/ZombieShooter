@@ -6,10 +6,6 @@ public class Skeleton_HitPlayer : MonoBehaviour
 {
 
     public Transform playerTransform; //Transform position of a player
-    public Transform skeletonTransform; //Transform position of skeleton
-    public Animator skeletonAnimator; //Animator from skeleton
-    public Rigidbody skeletonRigidbody; //Skeleton rigidbody
-    public Skeleton_SpawnController skeletonSpawnControllerScript; //Skeleton SpawnController script
     static Animator skeletonAnimatorClone; //Animator component of skeleton clone
     static Transform skeletonTransformClone; //Transform component of skeleton clone
 
