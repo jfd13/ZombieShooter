@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.41941226, g: 0.44832963, b: 0.46672857, a: 1}
+  m_IndirectSpecularColor: {r: 0.32850763, g: 0.3212722, b: 0.27743417, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -504,14 +504,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.046174914, y: -0.2585231, z: 0.012372529, w: 0.9648216}
+  m_LocalRotation: {x: -0.02359959, y: -0.25874177, z: -0.00632349, w: 0.9656375}
   m_LocalPosition: {x: -1.09, y: 4.83, z: 1.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 5.48, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: -2.8, y: -30, z: 0}
 --- !u!1001 &1374329615
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -710,6 +710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eddeadd9057cb64bb6402e0149341be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FlashLightScript: {fileID: 0}
 --- !u!4 &1944377734 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
@@ -722,6 +723,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2084849358680801733, guid: cdc076a0cf0dd3e48b00042842b95a6a, type: 3}
+      propertyPath: FlashLightScript
+      value: 
+      objectReference: {fileID: 45395768}
     - target: {fileID: 4951009795419190032, guid: cdc076a0cf0dd3e48b00042842b95a6a, type: 3}
       propertyPath: m_RootOrder
       value: 6
