@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FlashlightToggle : MonoBehaviour
@@ -33,7 +35,7 @@ public class FlashlightToggle : MonoBehaviour
 
         Timer();
     }
-    
+
     void Timer()
     {
         if (isFlashLightActive == true)
@@ -41,9 +43,10 @@ public class FlashlightToggle : MonoBehaviour
             currentTime -= Time.deltaTime;
             print(currentTime);
 
-            if(currentTime <= 0)
+            if (currentTime <= 0)
             {
                 flashLight.enabled = false;
+                isFlashLightActive = false;
             }
         }
     }
@@ -51,5 +54,7 @@ public class FlashlightToggle : MonoBehaviour
     public void ResetTimer()
     {
         currentTime = startingTime;
+        flashLight.enabled = true;
+        isFlashLightActive = true;
     }
 }
