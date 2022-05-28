@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LightningScript : MonoBehaviour
 {
+    Transform transformComponent;
     Light lightComponent;
     float minIntensity = 5;
     float maxIntensity = 20;
@@ -13,7 +14,8 @@ public class LightningScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lightComponent = this.GetComponent<Light>();
+        transformComponent = GetComponent<Transform>();
+        lightComponent = GetComponent<Light>();
         nextLightning = Time.time + 3;
         endOfLightning = nextLightning + lightningDuration;
     }
@@ -26,6 +28,11 @@ public class LightningScript : MonoBehaviour
             if(Time.time > endOfLightning){
                 nextLightning = Time.time + Random.Range(1,6);
                 endOfLightning = nextLightning + lightningDuration;
+                Vector3 lightPosition = transformComponent.position;
+                lightPosition.x = Random.Range(20,-30);
+                lightPosition.z = Random.Range(6,-40);
+                Quaternion lightRotation = transformComponent.rotation;
+                transformComponent.SetPositionAndRotation(lightPosition,lightRotation);
             }
         }
         else{
