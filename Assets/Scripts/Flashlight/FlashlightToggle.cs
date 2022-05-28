@@ -6,8 +6,9 @@ public class FlashlightToggle : MonoBehaviour
 {
     public Light flashLight;
     bool isFlashLightActive;
+    bool isFlashLightActiveBefore;
 
-    private float currentTime = 0f;
+    public float currentTime = 0f;
     private float startingTime = 5f;
 
     void Start()
@@ -36,7 +37,7 @@ public class FlashlightToggle : MonoBehaviour
         Timer();
     }
 
-    void Timer()
+    public void Timer()
     {
         if (isFlashLightActive == true)
         {
@@ -54,7 +55,5 @@ public class FlashlightToggle : MonoBehaviour
     public void ResetTimer()
     {
         currentTime = startingTime;
-        flashLight.enabled = true;
-        isFlashLightActive = true;
     }
 }
