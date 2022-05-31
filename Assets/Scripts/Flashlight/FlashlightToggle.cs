@@ -13,6 +13,10 @@ public class FlashlightToggle : MonoBehaviour
 
     void Start()
     {
+        if(flashLight == null)
+        {
+            return;
+        }
         flashLight.enabled = false;
 
         currentTime = startingTime;
@@ -20,6 +24,10 @@ public class FlashlightToggle : MonoBehaviour
 
     void Update()
     {
+        if(flashLight == null)
+        {
+            return;
+        }
         // Turns on the flashlight
         if (Input.GetKeyDown(KeyCode.F) && isFlashLightActive == false)
         {
@@ -42,7 +50,7 @@ public class FlashlightToggle : MonoBehaviour
         if (isFlashLightActive == true)
         {
             currentTime -= Time.deltaTime;
-            print(currentTime);
+            //print(currentTime);
 
             if (currentTime <= 0)
             {
