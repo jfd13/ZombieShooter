@@ -8,10 +8,16 @@ public class BatteryTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Battery triggered");
         if(FlashLightScript != null){
-            FlashLightScript.ResetTimer();
-            gameObject.SetActive(false);
+            if(FlashLightScript.currentTime == FlashLightScript.startingTime)
+            {
+            }
+            else
+            {
+                FlashLightScript.ResetTimer();
+                FlashLightScript.ResetIntensity();
+                gameObject.SetActive(false);
+            }
         }
     }
 }

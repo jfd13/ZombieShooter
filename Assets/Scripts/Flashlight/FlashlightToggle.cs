@@ -6,10 +6,9 @@ public class FlashlightToggle : MonoBehaviour
 {
     public Light flashLight;
     bool isFlashLightActive;
-    bool isFlashLightActiveBefore;
 
     public float currentTime = 0f;
-    private float startingTime = 5f;
+    [HideInInspector] public float startingTime = 10f;
 
     void Start()
     {
@@ -17,6 +16,7 @@ public class FlashlightToggle : MonoBehaviour
         {
             return;
         }
+
         flashLight.enabled = false;
 
         currentTime = startingTime;
@@ -28,6 +28,7 @@ public class FlashlightToggle : MonoBehaviour
         {
             return;
         }
+
         // Turns on the flashlight
         if (Input.GetKeyDown(KeyCode.F) && isFlashLightActive == false)
         {
@@ -47,15 +48,21 @@ public class FlashlightToggle : MonoBehaviour
 
     public void Timer()
     {
+        float intensityNumber = Random.Range(0f, 1f);
+
         if (isFlashLightActive == true)
         {
             currentTime -= Time.deltaTime;
-            //print(currentTime);
 
             if (currentTime <= 0)
             {
                 flashLight.enabled = false;
                 isFlashLightActive = false;
+            }
+
+            else if (currentTime <= 5f)
+            {
+                flashLight.intensity = intensityNumber;
             }
         }
     }
@@ -63,5 +70,10 @@ public class FlashlightToggle : MonoBehaviour
     public void ResetTimer()
     {
         currentTime = startingTime;
+    }
+
+    public void ResetIntensity()
+    {
+        flashLight.intensity = 3f;
     }
 }
