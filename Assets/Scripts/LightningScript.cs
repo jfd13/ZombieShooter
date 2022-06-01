@@ -24,7 +24,7 @@ public class LightningScript : MonoBehaviour
     void Update()
     {
         if(Time.time > nextLightning){
-            lightComponent.intensity = Random.Range(minIntensity,maxIntensity);
+            lightComponent.intensity = minIntensity + maxIntensity * Mathf.PerlinNoise(Time.time*10,0);
             if(Time.time > endOfLightning){
                 nextLightning = Time.time + Random.Range(1,6);
                 endOfLightning = nextLightning + lightningDuration;
