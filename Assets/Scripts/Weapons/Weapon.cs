@@ -10,6 +10,7 @@ public class Weapon : MonoBehaviour
     public Camera mainCamera;
     public GameObject reloadingText;
     public TextMeshProUGUI ammoText;
+    public AudioSource shootingSound;
 
     [Header("Ints")]
     public int startingAmmoAmount;
@@ -54,8 +55,10 @@ public class Weapon : MonoBehaviour
             // Firing rate
             if (Time.time < holdFireRate + lastShot) return;
             {
-
                 Vector3 forward = mainCamera.transform.forward;
+
+                // Play a shooting sound
+                shootingSound.Play();
 
                 // Bullet spread
                 forward = forward + mainCamera.transform.TransformDirection(new Vector3(Random.Range(-spread, spread), Random.Range(-spread, spread)));
@@ -97,6 +100,9 @@ public class Weapon : MonoBehaviour
             if (Time.time < tapFireRate + lastShot) return;
             {
                 Vector3 forward = mainCamera.transform.forward;
+
+                // Play a shooting sound
+                shootingSound.Play();
 
                 // Bullet spread
                 forward = forward + mainCamera.transform.TransformDirection(new Vector3(Random.Range(-spread, spread),Random.Range(-spread, spread)));
