@@ -177,13 +177,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 2056406517}
-  ammoAmount: 0
+  startingAmmoAmount: 40
   damage: 0
-  fireRate: 0
+  tapFireRate: 0
+  holdFireRate: 0.1
   spread: 0
+  reloadingTime: 4
   bulletRange: 1000
   holdToShoot: 1
   tapToShoot: 0
+  ammoAmount: 0
+  reloading: 0
+  reload: 0
 --- !u!1001 &254508113
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -774,13 +779,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 2056406517}
-  ammoAmount: 0
+  startingAmmoAmount: 6
   damage: 0
-  fireRate: 0
+  tapFireRate: 1
+  holdFireRate: 0
   spread: 0
-  bulletRange: 1000
+  reloadingTime: 4
+  bulletRange: 15
   holdToShoot: 0
   tapToShoot: 1
+  ammoAmount: 0
+  reloading: 0
+  reload: 0
 --- !u!1 &722485949
 GameObject:
   m_ObjectHideFlags: 0
@@ -1050,13 +1060,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 2056406517}
-  ammoAmount: 0
+  startingAmmoAmount: 10
   damage: 0
-  fireRate: 0
+  tapFireRate: 0.4
+  holdFireRate: 0
   spread: 0
+  reloadingTime: 2
   bulletRange: 1000
   holdToShoot: 0
   tapToShoot: 1
+  ammoAmount: 0
+  reloading: 0
+  reload: 0
 --- !u!4 &1488518281 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
@@ -1161,13 +1176,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 2056406517}
-  ammoAmount: 0
+  startingAmmoAmount: 30
   damage: 0
-  fireRate: 0
+  tapFireRate: 0
+  holdFireRate: 0.2
   spread: 0
+  reloadingTime: 4
   bulletRange: 1000
   holdToShoot: 1
   tapToShoot: 0
+  ammoAmount: 0
+  reloading: 0
+  reload: 0
 --- !u!20 &2056406517 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 2000000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
