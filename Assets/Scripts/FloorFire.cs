@@ -4,12 +4,22 @@ using UnityEngine;
 
 public class FloorFire : MonoBehaviour
 {
-    [SerializeField]
-    Transform center;
+    [SerializeField] Transform center;
+    [SerializeField] float xOffset = 4f;
+    [SerializeField] float yOffset = 4f;
+    [SerializeField] int startPosition = 1;
+    [SerializeField] int speed = 5;
+    [SerializeField] int direction = 1;
     // Start is called before the first frame update
     void Start()
     {
         if(center == null) return;
+        Vector3 position = transform.position;
+        Quaternion rotation = transform.rotation;
+
+        position.x = center.position.x + xOffset*Mathf.Cos(startPosition*Mathf.PI+direction*Time.time*speed);
+        position.z = center.position.z + yOffset*Mathf.Sin(startPosition*Mathf.PI+direction*Time.time*speed);
+        transform.SetPositionAndRotation(position,rotation);
 
     }
 
@@ -19,9 +29,9 @@ public class FloorFire : MonoBehaviour
         if(center == null) return;
         Vector3 position = transform.position;
         Quaternion rotation = transform.rotation;
-        position.x = center.position.x + 4*Mathf.Sin(Time.time+Random.Range(1,10)*10);
-        position.z = center.position.z + 4*Mathf.Cos(Time.time+Random.Range(1,10)*10);
-        transform.SetPositionAndRotation(position,rotation);
 
+        position.x = center.position.x + xOffset*Mathf.Cos(startPosition*Mathf.PI+direction*Time.time*speed);
+        position.z = center.position.z + yOffset*Mathf.Sin(startPosition*Mathf.PI+direction*Time.time*speed);
+        transform.SetPositionAndRotation(position,rotation);
     }
 }

@@ -6,7 +6,9 @@ using UnityEngine.AI;
 public class BossAI : MonoBehaviour
 {
     [SerializeField] Transform target;
+    [SerializeField] float chaseRange = 10f;
     NavMeshAgent navMeshAgent;
+    float distanceToTarget = Mathf.Infinity;
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -15,6 +17,11 @@ public class BossAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        navMeshAgent.SetDestination(target.position);
+        distanceToTarget = Vector3.Distance(target.position,transform.position);
+        if (distanceToTarget < chaseRange)
+        {
+            //Debug.Log("Chasing Player");
+            navMeshAgent.SetDestination(target.position);
+        }  
     }
 }
