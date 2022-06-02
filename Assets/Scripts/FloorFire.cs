@@ -19,8 +19,8 @@ public class FloorFire : MonoBehaviour
         if(center == null) return;
         Vector3 position = transform.position;
         Quaternion rotation = transform.rotation;
-        position.x = center.position.x + 4*Mathf.Sin(Time.time*10);
-        position.z = center.position.z + 4*Mathf.Cos(Time.time*10);
+        position.x = center.position.x + 4*Mathf.Sin(Time.time+Random.Range(1,10)*10);
+        position.z = center.position.z + 4*Mathf.Cos(Time.time+Random.Range(1,10)*10);
         transform.SetPositionAndRotation(position,rotation);
 
     }

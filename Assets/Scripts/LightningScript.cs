@@ -6,9 +6,12 @@ public class LightningScript : MonoBehaviour
 {
     Transform transformComponent;
     Light lightComponent;
-    float minIntensity = 5;
-    float maxIntensity = 20;
+    [SerializeField]
+    float minIntensity = 16;
+    [SerializeField]
+    float maxIntensity = 50;
     float nextLightning = 0;
+    [SerializeField]
     float lightningDuration = 1;
     float endOfLightning = 0;
     // Start is called before the first frame update
