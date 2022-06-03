@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundEffects : MonoBehaviour
+public class Map_SoundEffects : MonoBehaviour
 {
     public AudioSource childWhispering; //Call audio source child whispering
     public AudioSource wind; //Call audio source wind
     public AudioSource monsterScreaming; //Call audio source monster screaming
+    public ParticleSystem dustSmoke;
+    public GameObject dustSmokeGameObject;
 
     //----------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -38,7 +40,7 @@ public class SoundEffects : MonoBehaviour
     {
         if (randomizeOnce == true)
         {
-            randomSound = Random.Range(0, 40);
+            randomSound = Random.Range(0, 16);
             randomizeOnce = false;
         }
     }
@@ -54,6 +56,9 @@ public class SoundEffects : MonoBehaviour
         else if (randomSound == 2 && playSoundOnce == true)
         {
             wind.Play();
+            dustSmoke.Play();
+            dustSmokeGameObject.SetActive(true);
+            StartCoroutine(WindTimer());
             playSoundOnce = false;
         }
         else if (randomSound == 3 && playSoundOnce == true)
@@ -63,7 +68,7 @@ public class SoundEffects : MonoBehaviour
         }
     }
 
-    //----------------------------------------------------------------------------------------------------------------------------------------------TIMER
+    //----------------------------------------------------------------------------------------------------------------------------------------------TIMERS
 
     //Timer before it randomizes and plays the sound if the number is correct
     public void Timer()
@@ -79,9 +84,9 @@ public class SoundEffects : MonoBehaviour
             {
                 Debug.Log("Time has run out!");
                 timeRemaining = timeOfSoundPlay;
-                timerIsRunning = true;
                 Randomize();
                 PlaySound();
+                timerIsRunning = true;
                 randomizeOnce = true;
                 playSoundOnce = true;
             }
@@ -97,11 +102,18 @@ public class SoundEffects : MonoBehaviour
         //Debug.Log($"Minutes: {minutes}, Seconds: {seconds}");
     }
 
+    IEnumerator WindTimer()
+    {
+        yield return new WaitForSeconds(50);
+        dustSmokeGameObject.SetActive(false);
+    }
+
     //----------------------------------------------------------------------------------------------------------------------------------------------SET VARIABLES
 
     //Set variables at start
     public void SetVariables()
     {
+        timerIsRunning = true;
         randomizeOnce = true;
         playSoundOnce = true;
         timeRemaining = timeOfSoundPlay;
