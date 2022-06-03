@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Skeleton
   - Wall
+  - BananaMan
   layers:
   - Default
   - TransparentFX
