@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -156,12 +156,14 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &51473193 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1095254202041702, guid: 6273e2936e9d6a24e9f64c7c70d6bd19, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1095254202041702, guid: 6273e2936e9d6a24e9f64c7c70d6bd19,
+    type: 3}
   m_PrefabInstance: {fileID: 937906840}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &51473194 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4907130060635364, guid: 6273e2936e9d6a24e9f64c7c70d6bd19, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4907130060635364, guid: 6273e2936e9d6a24e9f64c7c70d6bd19,
+    type: 3}
   m_PrefabInstance: {fileID: 937906840}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &51473200
@@ -181,11 +183,13 @@ MonoBehaviour:
   ammoText: {fileID: 1527310941}
   shootingSound: {fileID: 51473201}
   animator: {fileID: 51473204}
+  bulletHole: {fileID: 7736674703587122945, guid: 6ee656b2ee36f0649a1ce41849def0d4,
+    type: 3}
   startingAmmoAmount: 40
   damage: 0
   tapFireRate: 0
   holdFireRate: 0.1
-  spread: 0
+  spread: 0.07
   reloadingTime: 4
   bulletRange: 1000
   holdToShoot: 1
@@ -445,7 +449,7 @@ GameObject:
   - component: {fileID: 358415012}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: BulletWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -620,7 +624,7 @@ GameObject:
   - component: {fileID: 452815621}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: BulletWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 95
@@ -884,12 +888,14 @@ Transform:
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &720648445 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1236257789494122, guid: 8b0b86b42def11849a8eba21f4a6a684, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1236257789494122, guid: 8b0b86b42def11849a8eba21f4a6a684,
+    type: 3}
   m_PrefabInstance: {fileID: 254508113}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &720648446 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4243371153570508, guid: 8b0b86b42def11849a8eba21f4a6a684, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4243371153570508, guid: 8b0b86b42def11849a8eba21f4a6a684,
+    type: 3}
   m_PrefabInstance: {fileID: 254508113}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &720648452
@@ -909,11 +915,13 @@ MonoBehaviour:
   ammoText: {fileID: 1527310941}
   shootingSound: {fileID: 720648453}
   animator: {fileID: 720648456}
+  bulletHole: {fileID: 7736674703587122945, guid: 6ee656b2ee36f0649a1ce41849def0d4,
+    type: 3}
   startingAmmoAmount: 6
   damage: 0
   tapFireRate: 2
   holdFireRate: 0
-  spread: 0
+  spread: 0.1
   reloadingTime: 4
   bulletRange: 15
   holdToShoot: 0
@@ -1420,12 +1428,14 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
 --- !u!1 &1457289133 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1694449805434718, guid: 6f1a7354265853f44b0ed5e2e43676ad, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1694449805434718, guid: 6f1a7354265853f44b0ed5e2e43676ad,
+    type: 3}
   m_PrefabInstance: {fileID: 321416534}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1457289134 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4952727429218122, guid: 6f1a7354265853f44b0ed5e2e43676ad, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4952727429218122, guid: 6f1a7354265853f44b0ed5e2e43676ad,
+    type: 3}
   m_PrefabInstance: {fileID: 321416534}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1457289135
@@ -1445,11 +1455,13 @@ MonoBehaviour:
   ammoText: {fileID: 1527310941}
   shootingSound: {fileID: 1457289136}
   animator: {fileID: 1457289137}
+  bulletHole: {fileID: 7736674703587122945, guid: 6ee656b2ee36f0649a1ce41849def0d4,
+    type: 3}
   startingAmmoAmount: 10
   damage: 0
   tapFireRate: 0.4
   holdFireRate: 0
-  spread: 1
+  spread: 0.02
   reloadingTime: 2
   bulletRange: 1000
   holdToShoot: 0
@@ -1575,7 +1587,8 @@ Animator:
   m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1488518281 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400002, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 400002, guid: 5e9e851c0e142814dac026a256ba2ac0,
+    type: 3}
   m_PrefabInstance: {fileID: 1374329615}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1498502859
@@ -1793,12 +1806,14 @@ CanvasRenderer:
   m_CullTransparentMesh: 1
 --- !u!1 &1680215264 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1487774384131766, guid: ee329c3cd08e58645834d20702d7f6c6, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1487774384131766, guid: ee329c3cd08e58645834d20702d7f6c6,
+    type: 3}
   m_PrefabInstance: {fileID: 1231923789}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1680215265 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4519716788627816, guid: ee329c3cd08e58645834d20702d7f6c6, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4519716788627816, guid: ee329c3cd08e58645834d20702d7f6c6,
+    type: 3}
   m_PrefabInstance: {fileID: 1231923789}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1680215268
@@ -1818,11 +1833,13 @@ MonoBehaviour:
   ammoText: {fileID: 1527310941}
   shootingSound: {fileID: 1680215269}
   animator: {fileID: 1680215272}
+  bulletHole: {fileID: 7736674703587122945, guid: 6ee656b2ee36f0649a1ce41849def0d4,
+    type: 3}
   startingAmmoAmount: 30
   damage: 0
   tapFireRate: 0
   holdFireRate: 0.1
-  spread: 0
+  spread: 0.07
   reloadingTime: 4
   bulletRange: 1000
   holdToShoot: 1
@@ -1948,6 +1965,7 @@ Animator:
   m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!20 &2056406517 stripped
 Camera:
-  m_CorrespondingSourceObject: {fileID: 2000000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2000000, guid: 5e9e851c0e142814dac026a256ba2ac0,
+    type: 3}
   m_PrefabInstance: {fileID: 1374329615}
   m_PrefabAsset: {fileID: 0}

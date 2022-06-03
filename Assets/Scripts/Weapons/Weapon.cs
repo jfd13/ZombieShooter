@@ -12,6 +12,7 @@ public class Weapon : MonoBehaviour
     public TextMeshProUGUI ammoText;
     public AudioSource shootingSound;
     public Animator animator;
+    public GameObject bulletHole;
 
     [Header("Ints")]
     public int startingAmmoAmount;
@@ -76,6 +77,7 @@ public class Weapon : MonoBehaviour
                 // Play a shooting sound
                 shootingSound.Play();
 
+                // Shooting animation
                 animator.SetBool("shot", true);
 
                 // Bullet spread
@@ -84,6 +86,13 @@ public class Weapon : MonoBehaviour
                 // Shooting
                 if (Physics.Raycast(mainCamera.transform.position, forward, out hit, bulletRange))
                 {
+                    // Make a hole when shot
+                    if (hit.collider.tag == "BulletWall")
+                    {
+                        Instantiate(bulletHole, hit.point + hit.normal * 0.0001f, Quaternion.LookRotation(-hit.normal));
+                        bulletHole.transform.up = hit.normal;
+                    }
+
                     // prints out the shot object's name
                     print(hit.collider.gameObject.name);
                 }
@@ -128,6 +137,7 @@ public class Weapon : MonoBehaviour
                 // Play a shooting sound
                 shootingSound.Play();
 
+                // Shooting animation
                 animator.SetBool("shot", true);
 
                 // Bullet spread
@@ -136,6 +146,13 @@ public class Weapon : MonoBehaviour
                 // Shooting
                 if (Physics.Raycast(mainCamera.transform.position, forward, out hit, bulletRange))
                 {
+                    // Make a hole when shot
+                    if(hit.collider.tag == "BulletWall")
+                    {
+                        Instantiate(bulletHole, hit.point + hit.normal * 0.0001f, Quaternion.LookRotation(-hit.normal));
+                        bulletHole.transform.up = hit.normal;
+                    }
+
                     // prints out the shot object's name
                     print(hit.collider.gameObject.name);
                 }
