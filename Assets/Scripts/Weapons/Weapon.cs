@@ -13,10 +13,13 @@ public class Weapon : MonoBehaviour
     public AudioSource shootingSound;
     public Animator animator;
     public GameObject bulletHole;
+    public ParticleSystem muzzle;
 
     [Header("Ints")]
     public int startingAmmoAmount;
     public int damage;
+    public int bulletsPerTap;
+    public int bulletShots;
 
     [Header("Floats")]
     public float tapFireRate;
@@ -24,6 +27,7 @@ public class Weapon : MonoBehaviour
     public float spread;
     public float reloadingTime;
     public float bulletRange;
+    public float timeBetweenShots;
     private float lastShot;
 
     [Header("Bools")]
@@ -67,121 +71,14 @@ public class Weapon : MonoBehaviour
         // Holding guns
         if (Input.GetKey(KeyCode.Mouse0) && holdToShoot && canShoot && !reloading)
         {
-            RaycastHit hit;
-
-            // Firing rate
-            if (Time.time < holdFireRate + lastShot) return;
-            {
-                Vector3 forward = mainCamera.transform.forward;
-
-                // Play a shooting sound
-                shootingSound.Play();
-
-                // Shooting animation
-                animator.SetBool("shot", true);
-
-                // Bullet spread
-                forward = forward + mainCamera.transform.TransformDirection(new Vector3(Random.Range(-spread, spread), Random.Range(-spread, spread)));
-
-                // Shooting
-                if (Physics.Raycast(mainCamera.transform.position, forward, out hit, bulletRange))
-                {
-                    // Make a hole when shot
-                    if (hit.collider.tag == "BulletWall")
-                    {
-                        Instantiate(bulletHole, hit.point + hit.normal * 0.0001f, Quaternion.LookRotation(-hit.normal));
-                        bulletHole.transform.up = hit.normal;
-                    }
-
-                    // prints out the shot object's name
-                    print(hit.collider.gameObject.name);
-                }
-
-                lastShot = Time.time;
-
-                if (courontinePauser == false)
-                {
-                    StartCoroutine(HoldShotBool());
-                    courontinePauser = true;
-                }
-            }
-
-            // Every time you shoot, it subtracts ammo amount
-            ammoAmount = ammoAmount - 1;
-
-            // Keeps the ammo on 0 & disables shooting
-            if (ammoAmount <= 0)
-            {
-                ammoAmount = 0;
-                reload = true;
-                canShoot = false;
-            }
-
-            // Tells when you can reload if less then the starting ammo amount
-            if (ammoAmount < startingAmmoAmount)
-            {
-                reload = true;
-            }
+            HoldShoot();
         }
 
         // Tap guns
         if (Input.GetKeyDown(KeyCode.Mouse0) && tapToShoot && canShoot && !reloading)
         {
-            RaycastHit hit;
-
-            // Firing rate
-            if (Time.time < tapFireRate + lastShot) return;
-            {
-                Vector3 forward = mainCamera.transform.forward;
-
-                // Play a shooting sound
-                shootingSound.Play();
-
-                // Shooting animation
-                animator.SetBool("shot", true);
-
-                // Bullet spread
-                forward = forward + mainCamera.transform.TransformDirection(new Vector3(Random.Range(-spread, spread),Random.Range(-spread, spread)));
-
-                // Shooting
-                if (Physics.Raycast(mainCamera.transform.position, forward, out hit, bulletRange))
-                {
-                    // Make a hole when shot
-                    if(hit.collider.tag == "BulletWall")
-                    {
-                        Instantiate(bulletHole, hit.point + hit.normal * 0.0001f, Quaternion.LookRotation(-hit.normal));
-                        bulletHole.transform.up = hit.normal;
-                    }
-
-                    // prints out the shot object's name
-                    print(hit.collider.gameObject.name);
-                }
-
-                lastShot = Time.time;
-
-                if (courontinePauser == false)
-                {
-                    StartCoroutine(TapShotBool());
-                    courontinePauser = true;
-                }
-            }
-
-            // Every time you shoot, it subtracts ammo amount
-            ammoAmount = ammoAmount - 1;
-
-            // Keeps the ammo on 0 & disables shooting
-            if (ammoAmount <= 0)
-            {
-                ammoAmount = 0;
-                reload = true;
-                canShoot = false;
-            }
-
-            // Tells when you can reload if less then the starting ammo amount
-            if (ammoAmount < startingAmmoAmount)
-            {
-                reload = true;
-            }
+            bulletShots = bulletsPerTap;
+            TapShoot();
         }
 
         // Reload timer & after reload
@@ -215,5 +112,136 @@ public class Weapon : MonoBehaviour
 
         // Ammo amount text
         ammoText.SetText($"{ammoAmount} / {startingAmmoAmount}");
+    }
+
+    void HoldShoot()
+    {
+        RaycastHit hit;
+
+        // Firing rate
+        if (Time.time < holdFireRate + lastShot) return;
+        {
+            Vector3 forward = mainCamera.transform.forward;
+
+            // Play a shooting sound
+            shootingSound.Play();
+
+            // Shooting animation
+            animator.SetBool("shot", true);
+
+            // Play the muzzle particle
+            muzzle.Play();
+
+            // Bullet spread
+            forward = forward + mainCamera.transform.TransformDirection(new Vector3(Random.Range(-spread, spread), Random.Range(-spread, spread)));
+
+            // Shooting
+            if (Physics.Raycast(mainCamera.transform.position, forward, out hit, bulletRange))
+            {
+                // Make a hole when shot
+                if (hit.collider.tag == "BulletWall")
+                {
+                    Instantiate(bulletHole, hit.point + hit.normal * 0.0001f, Quaternion.LookRotation(-hit.normal));
+                    bulletHole.transform.up = hit.normal;
+                }
+
+                // prints out the shot object's name
+                print(hit.collider.gameObject.name);
+            }
+
+            lastShot = Time.time;
+
+            if (courontinePauser == false)
+            {
+                StartCoroutine(HoldShotBool());
+                courontinePauser = true;
+            }
+        }
+
+        // Every time you shoot, it subtracts ammo amount
+        ammoAmount = ammoAmount - 1;
+
+        // Keeps the ammo on 0 & disables shooting
+        if (ammoAmount <= 0)
+        {
+            ammoAmount = 0;
+            reload = true;
+            canShoot = false;
+        }
+
+        // Tells when you can reload if less then the starting ammo amount
+        if (ammoAmount < startingAmmoAmount)
+        {
+            reload = true;
+        }
+    }
+
+    void TapShoot()
+    {
+        RaycastHit hit;
+
+        // Firing rate
+        if (Time.time < tapFireRate + lastShot) return;
+        {
+            Vector3 forward = mainCamera.transform.forward;
+
+            // Play a shooting sound
+            shootingSound.Play();
+
+            // Shooting animation
+            animator.SetBool("shot", true);
+
+            // Play the muzzle particle
+            muzzle.Play();
+
+            // Bullet spread
+            forward = forward + mainCamera.transform.TransformDirection(new Vector3(Random.Range(-spread, spread), Random.Range(-spread, spread)));
+
+            // Shooting
+            if (Physics.Raycast(mainCamera.transform.position, forward, out hit, bulletRange))
+            {
+                // Make a hole when shot
+                if (hit.collider.tag == "BulletWall")
+                {
+                    Instantiate(bulletHole, hit.point + hit.normal * 0.0001f, Quaternion.LookRotation(-hit.normal));
+                    bulletHole.transform.up = hit.normal;
+                }
+
+                // prints out the shot object's name
+                print(hit.collider.gameObject.name);
+            }
+
+            lastShot = Time.time;
+
+            if (courontinePauser == false)
+            {
+                StartCoroutine(TapShotBool());
+                courontinePauser = true;
+            }
+        }
+
+        // Every time you shoot, it subtracts ammo amount
+        ammoAmount = ammoAmount - 1;
+
+        // Keeps the ammo on 0 & disables shooting
+        if (ammoAmount <= 0)
+        {
+            ammoAmount = 0;
+            reload = true;
+            canShoot = false;
+        }
+
+        // Tells when you can reload if less then the starting ammo amount
+        if (ammoAmount < startingAmmoAmount)
+        {
+            reload = true;
+        }
+
+        bulletShots--;
+
+        if (bulletShots > 0 && ammoAmount > 0) // Which is true
+        {
+            Invoke("TapShoot", timeBetweenShots); // TapShoot the function where this code is in, timeBetweenShots = 0;
+        }
     }
 }
