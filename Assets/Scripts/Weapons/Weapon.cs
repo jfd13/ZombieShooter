@@ -11,6 +11,7 @@ public class Weapon : MonoBehaviour
     public GameObject reloadingText;
     public TextMeshProUGUI ammoText;
     public AudioSource shootingSound;
+    public Animator animator;
 
     [Header("Ints")]
     public int startingAmmoAmount;
@@ -28,6 +29,7 @@ public class Weapon : MonoBehaviour
     public bool holdToShoot;
     public bool tapToShoot;
     bool canShoot;
+    bool courontinePauser;
 
     // No changing values/bools
     [Header("Info")]
@@ -45,6 +47,20 @@ public class Weapon : MonoBehaviour
         reloadingText.SetActive(false);
     }
 
+    IEnumerator TapShotBool()
+    {
+        yield return new WaitForSeconds(0.20f);
+        animator.SetBool("shot", false);
+        courontinePauser = false;
+    }
+
+    IEnumerator HoldShotBool()
+    {
+        yield return new WaitForSeconds(0.01f);
+        animator.SetBool("shot", false);
+        courontinePauser = false;
+    }
+
     void Update()
     {
         // Holding guns
@@ -60,6 +76,8 @@ public class Weapon : MonoBehaviour
                 // Play a shooting sound
                 shootingSound.Play();
 
+                animator.SetBool("shot", true);
+
                 // Bullet spread
                 forward = forward + mainCamera.transform.TransformDirection(new Vector3(Random.Range(-spread, spread), Random.Range(-spread, spread)));
 
@@ -71,6 +89,12 @@ public class Weapon : MonoBehaviour
                 }
 
                 lastShot = Time.time;
+
+                if (courontinePauser == false)
+                {
+                    StartCoroutine(HoldShotBool());
+                    courontinePauser = true;
+                }
             }
 
             // Every time you shoot, it subtracts ammo amount
@@ -104,6 +128,8 @@ public class Weapon : MonoBehaviour
                 // Play a shooting sound
                 shootingSound.Play();
 
+                animator.SetBool("shot", true);
+
                 // Bullet spread
                 forward = forward + mainCamera.transform.TransformDirection(new Vector3(Random.Range(-spread, spread),Random.Range(-spread, spread)));
 
@@ -115,6 +141,12 @@ public class Weapon : MonoBehaviour
                 }
 
                 lastShot = Time.time;
+
+                if (courontinePauser == false)
+                {
+                    StartCoroutine(TapShotBool());
+                    courontinePauser = true;
+                }
             }
 
             // Every time you shoot, it subtracts ammo amount
@@ -157,6 +189,7 @@ public class Weapon : MonoBehaviour
         {
             reloadingText.SetActive(true);
         }
+
         // Disables if not reloading
         else
         {

@@ -41,15 +41,16 @@ public class WeaponSwitch : MonoBehaviour
         }
     }
 
-    void WeaponSelected()
+    public void WeaponSelected()
     {
         int i = 0;
         foreach(Transform weapon in transform)
         {
-            if(i == chosenWeapon)
+            if (i == chosenWeapon)
             {
                 weapon.gameObject.SetActive(true);
             }
+
             else
             {
                 weapon.gameObject.SetActive(false);
