@@ -2435,7 +2435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 639865215}
-  chaseRange: 50
+  chaseRange: 30
 --- !u!195 &2143044985
 NavMeshAgent:
   m_ObjectHideFlags: 0
