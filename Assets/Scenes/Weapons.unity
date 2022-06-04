@@ -1054,7 +1054,7 @@ MonoBehaviour:
   bulletShots: 0
   tapFireRate: 2
   holdFireRate: 0
-  spread: 0.5
+  spread: 0.1
   reloadingTime: 4
   bulletRange: 1000
   timeBetweenShots: 0

@@ -35,6 +35,7 @@ public class Weapon : MonoBehaviour
     public bool tapToShoot;
     bool canShoot;
     bool courontinePauser;
+    bool tapShooting;
 
     // No changing values/bools
     [Header("Info")]
@@ -75,9 +76,15 @@ public class Weapon : MonoBehaviour
         }
 
         // Tap guns
-        if (Input.GetKeyDown(KeyCode.Mouse0) && tapToShoot && canShoot && !reloading)
+        if (tapToShoot) tapShooting = Input.GetKeyDown(KeyCode.Mouse0);
+
+        if(tapToShoot && canShoot && !reloading && tapShooting)
         {
             bulletShots = bulletsPerTap;
+
+            // Every time you shoot, it subtracts ammo amount
+            ammoAmount--;
+
             TapShoot();
         }
 
@@ -180,55 +187,41 @@ public class Weapon : MonoBehaviour
     {
         RaycastHit hit;
 
+        canShoot = false;
+
         // Firing rate
-        if (Time.time < tapFireRate + lastShot) return;
+        Vector3 forward = mainCamera.transform.forward;
+
+        // Play a shooting sound
+        shootingSound.Play();
+
+        // Shooting animation
+        animator.SetBool("shot", true);
+
+        // Play the muzzle particle
+        muzzle.Play();
+
+        // Bullet spread
+        forward = forward + mainCamera.transform.TransformDirection(new Vector3(Random.Range(-spread, spread), Random.Range(-spread, spread)));
+
+        // Shooting
+        if (Physics.Raycast(mainCamera.transform.position, forward, out hit, bulletRange))
         {
-            Vector3 forward = mainCamera.transform.forward;
-
-            // Play a shooting sound
-            shootingSound.Play();
-
-            // Shooting animation
-            animator.SetBool("shot", true);
-
-            // Play the muzzle particle
-            muzzle.Play();
-
-            // Bullet spread
-            forward = forward + mainCamera.transform.TransformDirection(new Vector3(Random.Range(-spread, spread), Random.Range(-spread, spread)));
-
-            // Shooting
-            if (Physics.Raycast(mainCamera.transform.position, forward, out hit, bulletRange))
+            // Make a hole when shot
+            if (hit.collider.tag == "BulletWall")
             {
-                // Make a hole when shot
-                if (hit.collider.tag == "BulletWall")
-                {
-                    Instantiate(bulletHole, hit.point + hit.normal * 0.0001f, Quaternion.LookRotation(-hit.normal));
-                    bulletHole.transform.up = hit.normal;
-                }
-
-                // prints out the shot object's name
-                print(hit.collider.gameObject.name);
+                Instantiate(bulletHole, hit.point + hit.normal * 0.0001f, Quaternion.LookRotation(-hit.normal));
+                bulletHole.transform.up = hit.normal;
             }
 
-            lastShot = Time.time;
-
-            if (courontinePauser == false)
-            {
-                StartCoroutine(TapShotBool());
-                courontinePauser = true;
-            }
+            // prints out the shot object's name
+            print(hit.collider.gameObject.name);
         }
 
-        // Every time you shoot, it subtracts ammo amount
-        ammoAmount = ammoAmount - 1;
-
-        // Keeps the ammo on 0 & disables shooting
-        if (ammoAmount <= 0)
+        if (courontinePauser == false)
         {
-            ammoAmount = 0;
-            reload = true;
-            canShoot = false;
+            StartCoroutine(TapShotBool());
+            courontinePauser = true;
         }
 
         // Tells when you can reload if less then the starting ammo amount
@@ -239,9 +232,24 @@ public class Weapon : MonoBehaviour
 
         bulletShots--;
 
-        if (bulletShots > 0 && ammoAmount > 0) // Which is true
+        Invoke("ShootReset", tapFireRate);
+
+        if (bulletShots > 0 && ammoAmount >= 0)
         {
-            Invoke("TapShoot", timeBetweenShots); // TapShoot the function where this code is in, timeBetweenShots = 0;
+            Invoke("TapShoot", timeBetweenShots);
+        }
+    }
+
+    void ShootReset()
+    {
+        canShoot = true;
+
+        // Keeps the ammo on 0 & disables shooting
+        if (ammoAmount <= 0)
+        {
+            ammoAmount = 0;
+            reload = true;
+            canShoot = false;
         }
     }
 }
