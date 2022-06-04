@@ -252,4 +252,9 @@ public class Weapon : MonoBehaviour
             canShoot = false;
         }
     }
+
+    void OnDisable()
+    {
+        reloading = false;
+    }
 }
