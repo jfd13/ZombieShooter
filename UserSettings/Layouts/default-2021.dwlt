@@ -43,7 +43,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Inspector
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 121}
   m_MaxSize: {x: 4000, y: 4021}
   vertical: 0
-  controlID: 88
+  controlID: 94
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 112
+  controlID: 175
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -245,7 +245,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 113
+  controlID: 121
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -708,9 +708,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -52.04884, y: 0.4056797, z: -15.412969}
+    m_Target: {x: -47.40811, y: -1.3983297, z: -13.159927}
     speed: 2
-    m_Value: {x: -52.04884, y: 0.4056797, z: -15.412969}
+    m_Value: {x: -47.40811, y: -1.3983297, z: -13.159927}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -757,9 +757,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.042012323, y: -0.32201058, z: 0.014308893, w: 0.9456897}
+    m_Target: {x: 0.08726514, y: -0.21024555, z: 0.018848602, w: 0.9735582}
     speed: 2
-    m_Value: {x: 0.042012542, y: -0.32201228, z: 0.014308969, w: 0.9456946}
+    m_Value: {x: 0.08726562, y: -0.2102467, z: 0.018848704, w: 0.9735635}
   m_Size:
     m_Target: 10
     speed: 2
@@ -820,9 +820,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: ec150000
-      m_LastClickedID: 0
-      m_ExpandedIDs: 02fbffff5c610000
+      m_SelectedIDs: f0efffff
+      m_LastClickedID: -4112
+      m_ExpandedIDs: 10efffff54efffff58efffff5cefffff60efffffc4efffffc8efffffccefffffd0efffffd4efffffd8effffff0efffff02fbffff42610000586100005c610000e8610000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -886,6 +886,7 @@ MonoBehaviour:
     - {fileID: 2467304475058239508, guid: c82dea501324c5b4f8032dc1654c081c, type: 2}
     - {fileID: 2355093448915946903, guid: c82dea501324c5b4f8032dc1654c081c, type: 2}
     - {fileID: 2084176659179963730, guid: 76d31ad5e3ffe8949a5eb77e9b056772, type: 2}
+    - {fileID: 2084176659179963730, guid: 847b8ec7229d4d94fb6777433497417b, type: 2}
     m_ValueSerializationHelper:
     - e00: 0.75789475
       e01: 0
@@ -1015,14 +1016,30 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.7
+    - e00: 0.68425
       e01: 0
       e02: 0
-      e03: -8
+      e03: -0.37499714
       e10: 0
-      e11: 0.7
+      e11: 0.68425
       e12: 0
-      e13: 154
+      e13: 191.11003
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    - e00: 0.7126437
+      e01: 0
+      e02: 0
+      e03: -7.8906555
+      e10: 0
+      e11: 0.7126437
+      e12: 0
+      e13: 156.78162
       e20: 0
       e21: 0
       e22: 1
@@ -1032,10 +1049,10 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 76d31ad5e3ffe8949a5eb77e9b056772,
+  m_AnimatorController: {fileID: 9100000, guid: 847b8ec7229d4d94fb6777433497417b,
     type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: 2084176659179963730, guid: 76d31ad5e3ffe8949a5eb77e9b056772,
+  - m_Target: {fileID: 2084176659179963730, guid: 847b8ec7229d4d94fb6777433497417b,
       type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
@@ -1091,22 +1108,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Characters/Skeleton_FrisbeeThrower
+    - Assets/Scripts/Characters/Skeleton_GrenadeThrower
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/Scripts/Characters/Skeleton_FrisbeeThrower
+  - Assets/Scripts/Characters/Skeleton_GrenadeThrower
   m_LastFoldersGridSize: 96
   m_LastProjectPath: E:\Game Projects\Projekti\Zombie_Shooter2
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 18}
-    m_SelectedIDs: c66a0000
-    m_LastClickedID: 27334
-    m_ExpandedIDs: 000000007c6a0000bc6a0000c86a000000ca9a3b
+    m_SelectedIDs: c46a0000
+    m_LastClickedID: 27332
+    m_ExpandedIDs: 000000007c6a0000ae6a0000b26a0000be6a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1255,7 +1272,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 720
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:

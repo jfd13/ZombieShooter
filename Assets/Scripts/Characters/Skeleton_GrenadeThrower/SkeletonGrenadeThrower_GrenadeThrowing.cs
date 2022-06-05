@@ -21,7 +21,7 @@ public class SkeletonGrenadeThrower_GrenadeThrowing : MonoBehaviour
     float timeRemaining; //Float of how much time remaining, used in timer
     bool timerIsRunning; //Is timer runing bool
     [HideInInspector] public bool grenadeThrowingBool; //Is spell casting method enabled
-    bool walkTowardsPlayerBool; //Can skeleton start walking towards player bool
+    [HideInInspector] public bool walkTowardsPlayerBool; //Can skeleton start walking towards player bool
     [HideInInspector] public bool canSkeletonSlap; //Can skeleton slap or not variable
     int grenadeThrowingRandomizer; //Variable for randomizing spellcasting
     bool canSkeletonTurnToPlayer; //Can skeleton turn to player bool, used to determine if the skeleton can turn to throw at 90 degrees angle
