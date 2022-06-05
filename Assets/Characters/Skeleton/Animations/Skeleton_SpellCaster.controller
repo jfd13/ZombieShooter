@@ -383,7 +383,7 @@ AnimatorStateMachine:
     m_Position: {x: 780, y: 380, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8987959645940171954}
-    m_Position: {x: 590, y: 130, z: 0}
+    m_Position: {x: 610, y: 170, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -644,6 +644,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: SpellCast_Animation
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: Idle
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4402158191907371941}
   m_Solo: 0
@@ -696,6 +699,9 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: Walking_Animation
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: Idle
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2467304475058239508}
