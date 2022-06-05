@@ -23,6 +23,7 @@ public class SkeletonFrisbeeThrower_FrisbeeThrowing : MonoBehaviour
     [HideInInspector] public bool frisbeeThrowingBool; //Is spell casting method enabled
     [HideInInspector] public bool walkTowardsPlayerBool; //Can skeleton start walking towards player bool
     [HideInInspector] public bool canSkeletonSlap; //Can skeleton slap or not variable
+    [HideInInspector] public bool isSkeletonThrowing;
     int frisbeeThrowingRandomizer; //Variable for randomizing spellcasting
     bool canSkeletonTurnToPlayer; //Can skeleton turn to player bool, used to determine if the skeleton can turn to throw at 90 degrees angle
 
@@ -108,6 +109,8 @@ public class SkeletonFrisbeeThrower_FrisbeeThrowing : MonoBehaviour
 
                 //Set skeleton to false so that skeleton switches animation to spell casting instead of staying in slaping
                 canSkeletonSlap = false;
+
+                isSkeletonThrowing = true;
             }
 
             //If spellcasting is disabled and walking towards player enabled
@@ -252,6 +255,7 @@ public class SkeletonFrisbeeThrower_FrisbeeThrowing : MonoBehaviour
         canSkeletonTurnToPlayer = false;
         walkTowardsPlayerBool = true;
         canSkeletonSlap = true;
+        isSkeletonThrowing = false;
     }
 
     //-------------------------------------------------------------------------------------------------------------------------------VARIABLES

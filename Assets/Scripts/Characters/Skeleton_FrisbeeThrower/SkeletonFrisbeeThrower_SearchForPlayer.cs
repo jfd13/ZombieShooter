@@ -17,6 +17,7 @@ public class SkeletonFrisbeeThrower_SearchForPlayer : MonoBehaviour
     float slapDistance; //Float slap distance
     bool frisbeeThrowingBool;
     bool walkTowardsPlayerBool;
+    bool isSkeletonThrowing;
 
     public void Update()
     {
@@ -63,7 +64,7 @@ public class SkeletonFrisbeeThrower_SearchForPlayer : MonoBehaviour
             //Called method for walking animation and disabled it
             WalkingAnimation(false, 0, 0);
         }
-        else if (frisbeeThrowingBool == false && walkTowardsPlayerBool == true)
+        else if (frisbeeThrowingBool == false && walkTowardsPlayerBool == true && isSkeletonThrowing == false)
         {
             //Start walking towards player method
             WalkToPlayer();
@@ -105,5 +106,6 @@ public class SkeletonFrisbeeThrower_SearchForPlayer : MonoBehaviour
         slapDistance = skeletonFrisbeeThrowerVariablesScript.slapDistance;
         frisbeeThrowingBool = skeletonFrisbeeThrowerFrisbeeThrowingScript.frisbeeThrowingBool;
         walkTowardsPlayerBool = skeletonFrisbeeThrowerFrisbeeThrowingScript.walkTowardsPlayerBool;
+        isSkeletonThrowing = skeletonFrisbeeThrowerFrisbeeThrowingScript.isSkeletonThrowing;
     }
 }
