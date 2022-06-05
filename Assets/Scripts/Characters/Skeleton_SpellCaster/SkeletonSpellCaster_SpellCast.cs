@@ -23,7 +23,7 @@ public class SkeletonSpellCaster_SpellCast : MonoBehaviour
     bool walkTowardsPlayerBool; //Can skeleton start walking towards player bool
     [HideInInspector] public bool canSkeletonSlap; //Can skeleton slap or not variable
     int spellCastingRandomizer; //Variable for randomizing spellcasting
-    public bool canApplyDamage; //Used in other script to determine if it can apply damage or not
+    [HideInInspector] public bool canApplyDamage; //Used in other script to determine if it can apply damage or not
 
     //-------------------------------------------------------------------------------------------------------------------------------UPDATE/START METHOD
 

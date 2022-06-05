@@ -7,7 +7,6 @@ public class Skeleton_SoundEffect_BattleCry : MonoBehaviour
 
     public AudioSource skeletonBattleCry1;
     AudioSource skeletonBattleCry1Clone;
-    public List<string> AudioSourceClones = new List<string>();
 
     public int minimumBattleCryRange;
     public int maximumBattleCryRange;
