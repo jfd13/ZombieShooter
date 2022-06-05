@@ -618,6 +618,7 @@ Transform:
   - {fileID: 1053446873}
   - {fileID: 1933789062}
   - {fileID: 672370012}
+  - {fileID: 1671004476}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1510,6 +1511,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Skeleton_SpellCaster
+      objectReference: {fileID: 0}
+    - target: {fileID: 483228580227768097, guid: f3a9173a808a8924cb5d65e63134d287,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3526208615895280946, guid: f3a9173a808a8924cb5d65e63134d287,
         type: 3}
@@ -2542,6 +2548,159 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9044830319776394391, guid: bbb1489a9baffe44abd63310b1ae97ea,
     type: 3}
   m_PrefabInstance: {fileID: 9044830321329518496}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1671004475
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 361196701}
+    m_Modifications:
+    - target: {fileID: 588958005416478074, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0,
+        type: 3}
+      propertyPath: m_Name
+      value: Skeleton_FrisbeeThrower
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501136685151434601, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501136685151434601, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -41.21638
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501136685151434601, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.6102898
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501136685151434601, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.068146
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501136685151434601, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.07303866
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501136685151434601, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501136685151434601, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.9973291
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501136685151434601, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501136685151434601, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501136685151434601, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 171.623
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501136685151434601, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8866896318601600064, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0,
+        type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 1053446873}
+    - target: {fileID: 8866896318601600064, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0,
+        type: 3}
+      propertyPath: swordGameObject
+      value: 
+      objectReference: {fileID: 1726695496}
+    - target: {fileID: 8866896318601600064, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0,
+        type: 3}
+      propertyPath: skeletonFrisbeeThrowerVariablesScript
+      value: 
+      objectReference: {fileID: 1459867977}
+    - target: {fileID: 8866896318601600069, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0,
+        type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 1053446873}
+    - target: {fileID: 8866896318601600069, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0,
+        type: 3}
+      propertyPath: skeletonFrisbeeThrowerVariablesScript
+      value: 
+      objectReference: {fileID: 1459867977}
+    - target: {fileID: 8866896318601600070, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0,
+        type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 1053446873}
+    - target: {fileID: 8866896318601600070, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0,
+        type: 3}
+      propertyPath: skeletonFrisbeeThrowerVariablesScript
+      value: 
+      objectReference: {fileID: 1459867977}
+    - target: {fileID: 8866896318601600070, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0,
+        type: 3}
+      propertyPath: skeletonFrisbeeThrowerFrisbeeThrowingScript
+      value: 
+      objectReference: {fileID: 1671004477}
+    - target: {fileID: 8866896318601600071, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0,
+        type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 1053446873}
+    - target: {fileID: 8866896318601600071, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0,
+        type: 3}
+      propertyPath: skeletonFrisbeeThrowerVariablesScript
+      value: 
+      objectReference: {fileID: 1459867977}
+    - target: {fileID: 8866896320222034927, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0,
+        type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 183213325}
+    - target: {fileID: 8866896320222034927, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0,
+        type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 1053446873}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0, type: 3}
+--- !u!4 &1671004476 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4501136685151434601, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1671004475}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1671004477 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8866896318601600064, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1671004475}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94885fa8b7223c44f878edb3293c5b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1726695496 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1995320050239032406, guid: 4bef6a8c232ed924bb9840e52033f35d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1995320050723491151}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1728443383
 GameObject:

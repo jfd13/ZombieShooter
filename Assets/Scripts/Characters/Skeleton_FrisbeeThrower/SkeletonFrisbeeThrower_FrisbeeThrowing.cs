@@ -21,7 +21,7 @@ public class SkeletonFrisbeeThrower_FrisbeeThrowing : MonoBehaviour
     float timeRemaining; //Float of how much time remaining, used in timer
     bool timerIsRunning; //Is timer runing bool
     [HideInInspector] public bool frisbeeThrowingBool; //Is spell casting method enabled
-    bool walkTowardsPlayerBool; //Can skeleton start walking towards player bool
+    [HideInInspector] public bool walkTowardsPlayerBool; //Can skeleton start walking towards player bool
     [HideInInspector] public bool canSkeletonSlap; //Can skeleton slap or not variable
     int frisbeeThrowingRandomizer; //Variable for randomizing spellcasting
     bool canSkeletonTurnToPlayer; //Can skeleton turn to player bool, used to determine if the skeleton can turn to throw at 90 degrees angle
@@ -115,9 +115,6 @@ public class SkeletonFrisbeeThrower_FrisbeeThrowing : MonoBehaviour
             {
                 //Turn of spell cast animation
                 FrisbeeThrowingAnimation(false, 0, 0);
-
-                //Start walking towards player method
-                WalkToPlayer();
             }
         }
 
@@ -187,7 +184,7 @@ public class SkeletonFrisbeeThrower_FrisbeeThrowing : MonoBehaviour
         timeToDisplay += 1;
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
-        Debug.Log($"Minutes: {minutes}, Seconds: {seconds}");
+        //Debug.Log($"Minutes: {minutes}, Seconds: {seconds}");
     }
 
     //-------------------------------------------------------------------------------------------------------------------------------RANDOMIZER
@@ -200,22 +197,7 @@ public class SkeletonFrisbeeThrower_FrisbeeThrowing : MonoBehaviour
 
     //-------------------------------------------------------------------------------------------------------------------------------METHODS
 
-    //Walk to player method when its doing nothing instead of idling tries to go towards the player
-    public void WalkToPlayer()
-    {
-        TurnToPlayer();
-        WalkingAnimation(true, 1, 0);
-    }
 
-    //Turning to player method
-    public void TurnToPlayer()
-    {
-        Vector3 lookPos = playerTransform.position - transform.position;
-        Quaternion lookRot = Quaternion.LookRotation(lookPos, Vector3.up);
-        float eulerY = lookRot.eulerAngles.y;
-        Quaternion rotation = Quaternion.Euler(0, eulerY, 0);
-        transform.rotation = rotation;
-    }
 
     //Turn to player when throwing, offset by 90 degrees so that skeleton throws at the player
     public void TurnToPlayerWhenThrowing()
