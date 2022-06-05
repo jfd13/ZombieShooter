@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkeletonFrisbeeThrower_SpawnController : MonoBehaviour
+public class SkeletonFrisbeeThrower_SpawnControllerRandom : MonoBehaviour
 {
     public GameObject skeletonGameObject; //Skeleton game object
     public GameObject spawnerGameObject; //Spawner game object
