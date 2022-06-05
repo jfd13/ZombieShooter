@@ -8,12 +8,15 @@ public class SkeletonSpellCaster_SearchForPlayer : MonoBehaviour
     public Transform playerTransform; //player transform component
     public Animator skeletonSpellCasterAnimator; //Skeleton spell caster animator
     public SkeletonSpellCaster_Variables skeletonSpellCasterVariablesScript; //Skeleton spell caster variables script
+    public SkeletonSpellCaster_SpellCast skeletonSpellCasterSpellCastScript;
 
     //-------------------------------------------------------------------------------------------------------------------------------
 
     float distance; //Float distance to calculate distance later
     float spellCastDistance; //Float throwing distance, distance which determines if skeleton can already throw or not
     float slapDistance;
+    bool spellCastBool;
+    bool walkTowardsPlayerBool;
 
     public void Update()
     {
@@ -48,17 +51,21 @@ public class SkeletonSpellCaster_SearchForPlayer : MonoBehaviour
         }
 
         //If distance is smaller than throwing distance and distance is bigger than slap distance then initiate the statement
-        else if (distance < spellCastDistance && distance > slapDistance)
+        else if (distance < spellCastDistance && distance > slapDistance && spellCastBool == true && walkTowardsPlayerBool == false)
         {
             //Called method for walking animation and disabled it
             WalkingAnimation(false, 0, 0);
         }
 
         //If distance is smaller than throwing distance and distance is smaller than slap distance then initiate the statement
-        else if (distance < spellCastDistance && distance < slapDistance)
+        else if (distance < spellCastDistance && distance < slapDistance && spellCastBool == true && walkTowardsPlayerBool == false)
         {
             //Called method for walking animation and disabled it
             WalkingAnimation(false, 0, 0);
+        }
+        else if (spellCastBool == false && walkTowardsPlayerBool == true)
+        {
+            WalkToPlayer();
         }
     }
 
@@ -72,6 +79,21 @@ public class SkeletonSpellCaster_SearchForPlayer : MonoBehaviour
         skeletonSpellCasterAnimator.SetFloat("Walking_Y", walking_Y);
     }
 
+    public void WalkToPlayer()
+    {
+        TurnToPlayer();
+        WalkingAnimation(true, 1, 0);
+    }
+
+    public void TurnToPlayer()
+    {
+        Vector3 lookPos = playerTransform.position - transform.position;
+        Quaternion lookRot = Quaternion.LookRotation(lookPos, Vector3.up);
+        float eulerY = lookRot.eulerAngles.y;
+        Quaternion rotation = Quaternion.Euler(0, eulerY, 0);
+        transform.rotation = rotation;
+    }
+
     //-------------------------------------------------------------------------------------------------------------------------------VARIABLES
 
     //Calling all variables I need from variables script in which I set all the variables I need
@@ -79,5 +101,7 @@ public class SkeletonSpellCaster_SearchForPlayer : MonoBehaviour
     {
         spellCastDistance = skeletonSpellCasterVariablesScript.spellCastDistance;
         slapDistance = skeletonSpellCasterVariablesScript.slapDistance;
+        walkTowardsPlayerBool = skeletonSpellCasterSpellCastScript.walkTowardsPlayerBool;
+        spellCastBool = skeletonSpellCasterSpellCastScript.spellCastBool;
     }
 }

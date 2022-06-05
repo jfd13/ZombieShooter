@@ -20,7 +20,7 @@ public class SkeletonSpellCaster_SpellCast : MonoBehaviour
     float timeRemaining; //Float of how much time remaining, used in timer
     bool timerIsRunning; //Is timer runing bool
     [HideInInspector] public bool spellCastBool; //Is spell casting method enabled
-    bool walkTowardsPlayerBool; //Can skeleton start walking towards player bool
+    [HideInInspector] public bool walkTowardsPlayerBool; //Can skeleton start walking towards player bool
     [HideInInspector] public bool canSkeletonSlap; //Can skeleton slap or not variable
     int spellCastingRandomizer; //Variable for randomizing spellcasting
     [HideInInspector] public bool canApplyDamage; //Used in other script to determine if it can apply damage or not
