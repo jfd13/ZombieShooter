@@ -24,6 +24,7 @@ public class SkeletonSpellCaster_SpellCast : MonoBehaviour
     [HideInInspector] public bool canSkeletonSlap; //Can skeleton slap or not variable
     int spellCastingRandomizer; //Variable for randomizing spellcasting
     [HideInInspector] public bool canApplyDamage; //Used in other script to determine if it can apply damage or not
+    [HideInInspector] public bool isSpellCasting;
 
     //-------------------------------------------------------------------------------------------------------------------------------UPDATE/START METHOD
 
@@ -182,6 +183,7 @@ public class SkeletonSpellCaster_SpellCast : MonoBehaviour
     //Enables spellcasting
     IEnumerator SpellCast()
     {
+        isSpellCasting = true;
         skeletonSpellCasterShootSoundEffect.OnSpellSound();
         spellCastBool = false;
         yield return new WaitForSeconds(2.6f);
@@ -202,6 +204,7 @@ public class SkeletonSpellCaster_SpellCast : MonoBehaviour
         canApplyDamage = false;
         walkTowardsPlayerBool = true;
         canSkeletonSlap = true;
+        isSpellCasting = false;
     }
 
 

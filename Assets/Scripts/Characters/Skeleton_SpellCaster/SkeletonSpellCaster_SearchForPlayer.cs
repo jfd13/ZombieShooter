@@ -17,6 +17,7 @@ public class SkeletonSpellCaster_SearchForPlayer : MonoBehaviour
     float slapDistance;
     bool spellCastBool;
     bool walkTowardsPlayerBool;
+    bool isSpellCasting;
 
     public void Update()
     {
@@ -44,7 +45,7 @@ public class SkeletonSpellCaster_SearchForPlayer : MonoBehaviour
     public void FollowPlayer()
     {
         //If distance is bigger than throwing distance then initiate the statement
-        if (distance > spellCastDistance)
+        if (distance > spellCastDistance && isSpellCasting == false)
         {
             //Called method for walking animation and enabled it
             WalkingAnimation(true, 1, 0);
@@ -63,7 +64,7 @@ public class SkeletonSpellCaster_SearchForPlayer : MonoBehaviour
             //Called method for walking animation and disabled it
             WalkingAnimation(false, 0, 0);
         }
-        else if (spellCastBool == false && walkTowardsPlayerBool == true)
+        else if (spellCastBool == false && walkTowardsPlayerBool == true && isSpellCasting == false)
         {
             WalkToPlayer();
         }
@@ -103,5 +104,6 @@ public class SkeletonSpellCaster_SearchForPlayer : MonoBehaviour
         slapDistance = skeletonSpellCasterVariablesScript.slapDistance;
         walkTowardsPlayerBool = skeletonSpellCasterSpellCastScript.walkTowardsPlayerBool;
         spellCastBool = skeletonSpellCasterSpellCastScript.spellCastBool;
+        isSpellCasting = skeletonSpellCasterSpellCastScript.isSpellCasting;
     }
 }
