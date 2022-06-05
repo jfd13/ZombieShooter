@@ -7,6 +7,7 @@ public class SkeletonSpellCaster_LightningHitPoint : MonoBehaviour
     public SkeletonSpellCaster_SpellCast skeletonSpellCasterSpellCastScript; //Script spell cast from which I take a variable
     public SkeletonSpellCaster_Variables skeletonSpellCasterVariablesScript; //Script variables in which I store variables
     [HideInInspector] public GameObject skeleton; //Game object skeleton to find main skeleton
+    public AudioSource lightningOnHit; //Hurt sound on player hit with lightning
 
 
     bool canApplyDamage; //Can it apply damage yet, take from spell cast script
@@ -39,6 +40,9 @@ public class SkeletonSpellCaster_LightningHitPoint : MonoBehaviour
         {
             //Calculate time
             nextLightningHit = Time.time + lightningHitRate;
+
+            //Play hurt sound
+            lightningOnHit.Play();
 
             //Apply damage (for the future)
         }
