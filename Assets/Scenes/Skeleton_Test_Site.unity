@@ -624,6 +624,7 @@ Transform:
   - {fileID: 995010875}
   - {fileID: 183213324}
   - {fileID: 511427847}
+  - {fileID: 661270296}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -932,7 +933,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 452728154}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 798360968}
+        m_TargetAssemblyTypeName: CanvasRotationAndSound_DIFFICULTY, Assembly-CSharp
+        m_MethodName: OnClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &452728154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1189,6 +1202,134 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1995320050723491151}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &661270295
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 661270296}
+  - component: {fileID: 661270297}
+  m_Layer: 0
+  m_Name: DIFFICULTY_Canvas_OnClick
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &661270296
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661270295}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 217461999}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &661270297
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661270295}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &669666144
 GameObject:
   m_ObjectHideFlags: 0
@@ -1946,7 +2087,7 @@ GameObject:
   - component: {fileID: 798360967}
   - component: {fileID: 798360968}
   m_Layer: 0
-  m_Name: TextRotation_DIFFICULTYText
+  m_Name: CanvasRotationAndSound_DIFFICULTY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1979,8 +2120,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c057b1e05bd7474b9353b48b5b17954, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 1520239146}
+  canvas: {fileID: 1664287188}
   player: {fileID: 1053446873}
+  audioClips:
+  - {fileID: 8300000, guid: bffff1decf43831459c5fb1355f09ac5, type: 3}
+  - {fileID: 8300000, guid: 36456e5fd2fdd0b4dac0e741d408849c, type: 3}
+  - {fileID: 8300000, guid: 8744f7d63287e104e9b7d328cde6f658, type: 3}
+  - {fileID: 8300000, guid: b293bf9aff0db6044a67c02d1182e468, type: 3}
+  - {fileID: 8300000, guid: 00a747b6e563329439f7cfe0ba3a165e, type: 3}
+  - {fileID: 8300000, guid: 1ae1aab4b58eb6148bf5141ff5a6701d, type: 3}
+  - {fileID: 8300000, guid: 54fbc34377ff0c744ac69e254dd4bbc7, type: 3}
+  - {fileID: 8300000, guid: c16440d6fc48fb846a528162f15f88be, type: 3}
+  - {fileID: 8300000, guid: 78ed6ece193bffa4aa639894308692ce, type: 3}
+  - {fileID: 8300000, guid: 94f5cbf0187db1f4ca1dcaecf67788f3, type: 3}
+  - {fileID: 8300000, guid: e210cfcb8ba157145b7dae7d09bc4de8, type: 3}
+  - {fileID: 8300000, guid: 577270fcf0b248c41897d557a9c53e41, type: 3}
+  onClickAudioSource: {fileID: 661270297}
 --- !u!1001 &827448620
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2694,7 +2849,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1139229790}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 798360968}
+        m_TargetAssemblyTypeName: CanvasRotationAndSound_DIFFICULTY, Assembly-CSharp
+        m_MethodName: OnClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1139229790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2866,7 +3033,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1153244735}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 798360968}
+        m_TargetAssemblyTypeName: CanvasRotationAndSound_DIFFICULTY, Assembly-CSharp
+        m_MethodName: OnClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1153244735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3040,7 +3219,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1175443304}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 798360968}
+        m_TargetAssemblyTypeName: CanvasRotationAndSound_DIFFICULTY, Assembly-CSharp
+        m_MethodName: OnClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1175443304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3596,7 +3787,7 @@ PrefabInstance:
     - target: {fileID: 224059239684972252, guid: c7567417421e6874a8d56da7964771a8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.42
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: 224059239684972252, guid: c7567417421e6874a8d56da7964771a8,
         type: 3}
@@ -3621,7 +3812,7 @@ PrefabInstance:
     - target: {fileID: 224059239684972252, guid: c7567417421e6874a8d56da7964771a8,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -34.45
+      value: 5.18
       objectReference: {fileID: 0}
     - target: {fileID: 224059239684972252, guid: c7567417421e6874a8d56da7964771a8,
         type: 3}
@@ -4109,7 +4300,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1664287184}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: 0.011675434, z: -0, w: 0.9999319}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4117,7 +4308,7 @@ RectTransform:
   - {fileID: 1520239146}
   m_Father: {fileID: 0}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 1.338, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 3.12}
@@ -4506,7 +4697,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1691613574}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 798360968}
+        m_TargetAssemblyTypeName: CanvasRotationAndSound_DIFFICULTY, Assembly-CSharp
+        m_MethodName: OnClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1691613574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4740,7 +4943,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1753784154}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 798360968}
+        m_TargetAssemblyTypeName: CanvasRotationAndSound_DIFFICULTY, Assembly-CSharp
+        m_MethodName: OnClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1753784154
 MonoBehaviour:
   m_ObjectHideFlags: 0
