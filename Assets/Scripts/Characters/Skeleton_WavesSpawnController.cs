@@ -12,6 +12,7 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
     public List<GameObject> Spawners = new List<GameObject>();
     public TextMeshProUGUI onButtonPressText;
     public GameObject onButtonPressGameObject;
+    public Transform spawnerTransform;
 
 
 
@@ -19,6 +20,16 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
     public int currentWave;
     public float timeBetweenWaves;
     public float timer;
+
+    float spawnRate;
+    int veryEasyInt;
+    int easyInt;
+    int normalInt;
+    int hardInt;
+    int veryHardInt;
+    int legendaryInt;
+    bool timerIsRunningMidWaves;
+    float timeRemainingMidWaves;
     float timeRemaining;
     bool timerIsRunning;
     bool increaseTheSpawnLimitOnce;
@@ -30,8 +41,7 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
     bool hard;
     bool veryHard;
     bool legendary;
-
-    //Modifier very easy, easy, normal, hard, very hard, legendary through buttons
+    bool spawningSkeletons;
 
     public void Start()
     {
@@ -40,35 +50,149 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
 
     public void Update()
     {
+        SpawnNormalSkeletonsCalculationAndSpawn();
 
+        SpawnThrowersCalculationAndSpawn();
     }
 
 
-    public void SpawnNormalSkeletons()
+    public void SpawnNormalSkeletonsCalculationAndSpawn()
     {
-        if (timeRemaining > 0 && veryEasy == true)
+        if (timeRemaining > 0 && veryEasy == true && spawningSkeletons == true)
         {
-            
-        }
-        else if (timeRemaining > 0 && easy == true)
-        {
+            float veryEasyRandom = Random.Range(0.1f, 3f);
+            spawnRate = veryEasyRandom * veryEasyInt * spawnLimit;
+            spawningSkeletons = false;
 
+            for (int i = 0; i < spawnRate; i++)
+            {
+                Instantiate(skeletonNormal, spawnerTransform.position, spawnerTransform.rotation);
+            }
         }
-        else if (timeRemaining > 0 && normal == true)
+        else if (timeRemaining > 0 && easy == true && spawningSkeletons == true)
         {
+            float easyRandom = Random.Range(3.1f, 6f);
+            spawnRate = easyRandom * easyInt * spawnLimit;
+            spawningSkeletons = false;
 
+            for (int i = 0; i < spawnRate; i++)
+            {
+                Instantiate(skeletonNormal, spawnerTransform.position, spawnerTransform.rotation);
+            }
         }
-        else if (timeRemaining > 0 && hard == true)
+        else if (timeRemaining > 0 && normal == true && spawningSkeletons == true)
         {
+            float normalRandom = Random.Range(6.1f, 9f);
+            spawnRate = normalRandom * normalInt * spawnLimit;
+            spawningSkeletons = false;
 
+            for (int i = 0; i < spawnRate; i++)
+            {
+                Instantiate(skeletonNormal, spawnerTransform.position, spawnerTransform.rotation);
+            }
         }
-        else if (timeRemaining > 0 && veryHard == true)
+        else if (timeRemaining > 0 && hard == true && spawningSkeletons == true)
         {
+            float hardRandom = Random.Range(9.1f, 12f);
+            spawnRate = hardRandom * hardInt * spawnLimit;
+            spawningSkeletons = false;
 
+            for (int i = 0; i < spawnRate; i++)
+            {
+                Instantiate(skeletonNormal, spawnerTransform.position, spawnerTransform.rotation);
+            }
         }
-        else if (timeRemaining > 0 && legendary == true)
+        else if (timeRemaining > 0 && veryHard == true && spawningSkeletons == true)
         {
+            float veryHardRandom = Random.Range(12.1f, 15f);
+            spawnRate = veryHardRandom * veryHardInt * spawnLimit;
+            spawningSkeletons = false;
 
+            for (int i = 0; i < spawnRate; i++)
+            {
+                Instantiate(skeletonNormal, spawnerTransform.position, spawnerTransform.rotation);
+            }
+        }
+        else if (timeRemaining > 0 && legendary == true && spawningSkeletons == true)
+        {
+            float legendaryRandom = Random.Range(16.1f, 20f);
+            spawnRate = legendaryRandom * legendaryInt * spawnLimit;
+            spawningSkeletons = false;
+
+            for (int i = 0; i < spawnRate; i++)
+            {
+                Instantiate(skeletonNormal, spawnerTransform.position, spawnerTransform.rotation);
+            }
+        }
+    }
+
+    public void SpawnThrowersCalculationAndSpawn()
+    {
+        if (timeRemaining > 0 && veryEasy == true && spawningSkeletons == true)
+        {
+            float veryEasyRandom = Random.Range(0.1f, 1f);
+            spawnRate = veryEasyRandom * veryEasyInt * spawnLimit;
+            spawningSkeletons = false;
+
+            for (int i = 0; i < spawnRate; i++)
+            {
+                Instantiate(skeletonNormal, spawnerTransform.position, spawnerTransform.rotation);
+            }
+        }
+        else if (timeRemaining > 0 && easy == true && spawningSkeletons == true)
+        {
+            float easyRandom = Random.Range(1.1f, 2f);
+            spawnRate = easyRandom * easyInt * spawnLimit;
+            spawningSkeletons = false;
+
+            for (int i = 0; i < spawnRate; i++)
+            {
+                Instantiate(skeletonNormal, spawnerTransform.position, spawnerTransform.rotation);
+            }
+        }
+        else if (timeRemaining > 0 && normal == true && spawningSkeletons == true)
+        {
+            float normalRandom = Random.Range(3.1f, 4f);
+            spawnRate = normalRandom * normalInt * spawnLimit;
+            spawningSkeletons = false;
+
+            for (int i = 0; i < spawnRate; i++)
+            {
+                Instantiate(skeletonNormal, spawnerTransform.position, spawnerTransform.rotation);
+            }
+        }
+        else if (timeRemaining > 0 && hard == true && spawningSkeletons == true)
+        {
+            float hardRandom = Random.Range(4.1f, 5f);
+            spawnRate = hardRandom * hardInt * spawnLimit;
+            spawningSkeletons = false;
+
+            for (int i = 0; i < spawnRate; i++)
+            {
+                Instantiate(skeletonNormal, spawnerTransform.position, spawnerTransform.rotation);
+            }
+        }
+        else if (timeRemaining > 0 && veryHard == true && spawningSkeletons == true)
+        {
+            float veryHardRandom = Random.Range(5.1f, 6f);
+            spawnRate = veryHardRandom * veryHardInt * spawnLimit;
+            spawningSkeletons = false;
+
+            for (int i = 0; i < spawnRate; i++)
+            {
+                Instantiate(skeletonNormal, spawnerTransform.position, spawnerTransform.rotation);
+            }
+        }
+        else if (timeRemaining > 0 && legendary == true && spawningSkeletons == true)
+        {
+            float legendaryRandom = Random.Range(7.1f, 12f);
+            spawnRate = legendaryRandom * legendaryInt * spawnLimit;
+            spawningSkeletons = false;
+
+            for (int i = 0; i < spawnRate; i++)
+            {
+                Instantiate(skeletonNormal, spawnerTransform.position, spawnerTransform.rotation);
+            }
         }
     }
 
@@ -79,7 +203,7 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
     }
 
 
-    public void Timer()
+    public void TimerTotal()
     {
         if (timerIsRunning == true)
         {
@@ -94,11 +218,7 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
                 timeRemaining = 0;
                 timerIsRunning = false;
 
-                if (increaseTheSpawnLimitOnce == true)
-                {
-                    spawnLimit = spawnLimit++;
-                    increaseTheSpawnLimitOnce = false;
-                }
+                CanIncreaseSpawnLimit();
             }
         }
     }
@@ -108,9 +228,55 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
         timeToDisplay += 1;
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
-        Debug.Log($"Minutes: {minutes}, Seconds: {seconds}");
+        //Debug.Log($"Minutes: {minutes}, Seconds: {seconds}");
     }
-    
+
+    public void TimerMidWaves()
+    {
+        if (timerIsRunningMidWaves == true)
+        {
+            if (timeRemainingMidWaves > 0)
+            {
+                timeRemainingMidWaves -= Time.deltaTime;
+                DisplayTimeMidWaves(timeRemainingMidWaves);
+            }
+            else if (timeRemaining <= 0)
+            {
+                Debug.Log("End of cycle");
+                timeRemainingMidWaves = 0;
+                timerIsRunningMidWaves = false;
+
+                CanSpawnSkeletons();
+            }
+        }
+    }
+
+    public void DisplayTimeMidWaves(float timeToDisplay)
+    {
+        timeToDisplay += 1;
+        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
+        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+        //Debug.Log($"Minutes: {minutes}, Seconds: {seconds}");
+    }
+
+    public void CanSpawnSkeletons()
+    {
+        if (timeRemainingMidWaves == 0 && timerIsRunningMidWaves == false)
+        {
+            spawningSkeletons = true;
+        }
+    }
+
+    public void CanIncreaseSpawnLimit()
+    {
+        if (increaseTheSpawnLimitOnce == true)
+        {
+            spawnLimit = spawnLimit++;
+            currentWave++;
+            increaseTheSpawnLimitOnce = false;
+        }
+    }
+
     public void OnButtonPressVeryEasy()
     {
         DifficultyVariables(true, false, false, false, false, false);
@@ -165,9 +331,17 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
 
     public void SetVariables()
     {
+        spawnerTransform = this.GetComponent<Transform>();
+
         currentWave = wavesAmount;
         timeRemaining = 120;
         invokeSeconds = 4;
+        veryEasyInt = 1;
+        easyInt = 2;
+        normalInt = 3;
+        hardInt = 4;
+        veryHardInt = 5;
+        legendaryInt = 6;
         timerIsRunning = true;
         veryEasy = false;
         easy = false;
