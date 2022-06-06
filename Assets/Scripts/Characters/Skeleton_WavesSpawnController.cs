@@ -11,6 +11,8 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
     public GameObject skeletonGrenadeThrower;
     public List<GameObject> Spawners = new List<GameObject>();
     public TextMeshProUGUI onButtonPressText;
+    public TextMeshProUGUI whichWaveItIs;
+    public TextMeshProUGUI timeOfCurrentWave;
     public GameObject onButtonPressGameObject;
     public Transform spawnerTransform;
 
@@ -89,7 +91,7 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
     {
         if (startButtonWasPressed == true)
         {
-            onButtonPressText.SetText($"Wave number {currentWave}");
+            whichWaveItIs.SetText($"Wave number {currentWave}");
         }
     }
 
@@ -121,6 +123,7 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
         timeToDisplay += 1;
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+        timeOfCurrentWave.SetText($"{minutes}:{seconds}");
         //Debug.Log($"Minutes: {minutes}, Seconds: {seconds}");
     }
 
