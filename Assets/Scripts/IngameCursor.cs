@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class IngameCursor : MonoBehaviour
 {
+    public Camera playerCamera;
+    public GameObject cursor;
 
     public void Update()
     {
-        UnlockCursor();
+        ShowCursor();
     }
 
-    public void UnlockCursor()
+    public void ShowCursor()
     {
         if (Input.GetKey(KeyCode.Q))
         {

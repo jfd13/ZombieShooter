@@ -29,19 +29,18 @@ public class CanvasRotationAndSound_DIFFICULTY : MonoBehaviour
     public void OnClickSound()
     {
         random = Random.Range(0, 12);
+        Debug.Log(random);
 
-        for (int i = random; i < random + 1; i++)
+        onClickAudioSource.clip = audioClips[random];
+
+        if (onClickAudioSource.clip != null)
         {
-            onClickAudioSource.clip = audioClips[random];
-
-            if (onClickAudioSource.clip == null)
-            {
-                return;
-            }
-            else
-            {
-                onClickAudioSource.Play();
-            }
+            onClickAudioSource.Play();
+        }
+        else if (onClickAudioSource.clip == null)
+        {
+            onClickAudioSource.clip = audioClips[1];
+            onClickAudioSource.Play();
         }
     }
 }
