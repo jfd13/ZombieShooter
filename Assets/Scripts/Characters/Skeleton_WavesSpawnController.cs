@@ -41,11 +41,12 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
     bool hard;
     bool veryHard;
     bool legendary;
-    bool spawningSkeletons;
+    bool spawningNormalSkeletons;
     bool startButtonWasPressed;
     bool timerIsRunningPreparePhase;
     float timeRemainingPreparePhase;
     int waveTime;
+    bool spawningSkeletons;
 
     public void Start()
     {
@@ -65,10 +66,6 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
         TimerPreparePhase();
 
         WavesCounter();
-
-        Debug.Log($"Very easy: {veryEasy}");
-
-        Debug.Log($"Spawning skeletons: {spawningSkeletons}");
     }
 
     public void SpawnNormalSkeletonsCalculationAndSpawn()
@@ -211,8 +208,8 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
     {
         if (timeRemainingMidWaves <= 0)
         {
-            Debug.Log("Inside can spawn skeleton");
             spawningSkeletons = true;
+            spawningNormalSkeletons = true;
         }
     }
 
@@ -236,27 +233,22 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
 
     public void NormalSkeletonsVeryEasyCalculationAndSpawn()
     {
-        Debug.Log("Inside very easy spawn");
-        if (timeRemaining > 0 && veryEasy == true && spawningSkeletons == true)
+        if (timeRemaining > 0 && veryEasy == true && spawningNormalSkeletons == true)
         {
             float veryEasyRandom = Random.Range(0.1f, 3f);
             spawnRate = veryEasyRandom * veryEasyInt * spawnLimit;
 
-            Debug.Log("Inside very easy IF");
-
             for (int i = 0; i < spawnRate; i++)
             {
-                Debug.Log("Inside very FOR");
-
                 Instantiate(skeletonNormal, spawnerTransform.position, spawnerTransform.rotation);
             }
-            spawningSkeletons = false;
+            spawningNormalSkeletons = false;
         }
     }
 
     public void NormalSkeletonsEasyCalculationAndSpawn()
     {
-        if (timeRemaining > 0 && easy == true && spawningSkeletons == true)
+        if (timeRemaining > 0 && easy == true && spawningNormalSkeletons == true)
         {
             float easyRandom = Random.Range(3.1f, 6f);
             spawnRate = easyRandom * easyInt * spawnLimit;
@@ -265,13 +257,13 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
             {
                 Instantiate(skeletonNormal, spawnerTransform.position, spawnerTransform.rotation);
             }
-            spawningSkeletons = false;
+            spawningNormalSkeletons = false;
         }
     }
 
     public void NormalSkeletonsNormalCalculationAndSpawn()
     {
-        if (timeRemaining > 0 && normal == true && spawningSkeletons == true)
+        if (timeRemaining > 0 && normal == true && spawningNormalSkeletons == true)
         {
             float normalRandom = Random.Range(6.1f, 9f);
             spawnRate = normalRandom * normalInt * spawnLimit;
@@ -280,13 +272,13 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
             {
                 Instantiate(skeletonNormal, spawnerTransform.position, spawnerTransform.rotation);
             }
-            spawningSkeletons = false;
+            spawningNormalSkeletons = false;
         }
     }
 
     public void NormalSkeletonsHardCalculationAndSpawn()
     {
-        if (timeRemaining > 0 && hard == true && spawningSkeletons == true)
+        if (timeRemaining > 0 && hard == true && spawningNormalSkeletons == true)
         {
             float hardRandom = Random.Range(9.1f, 12f);
             spawnRate = hardRandom * hardInt * spawnLimit;
@@ -295,13 +287,13 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
             {
                 Instantiate(skeletonNormal, spawnerTransform.position, spawnerTransform.rotation);
             }
-            spawningSkeletons = false;
+            spawningNormalSkeletons = false;
         }
     }
 
     public void NormalSkeletonsVeryHardCalculationAndSpawn()
     {
-        if (timeRemaining > 0 && veryHard == true && spawningSkeletons == true)
+        if (timeRemaining > 0 && veryHard == true && spawningNormalSkeletons == true)
         {
             float veryHardRandom = Random.Range(12.1f, 15f);
             spawnRate = veryHardRandom * veryHardInt * spawnLimit;
@@ -310,13 +302,13 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
             {
                 Instantiate(skeletonNormal, spawnerTransform.position, spawnerTransform.rotation);
             }
-            spawningSkeletons = false;
+            spawningNormalSkeletons = false;
         }
     }
 
     public void NormalSkeletonsLegendaryCalculationAndSpawn()
     {
-        if (timeRemaining > 0 && legendary == true && spawningSkeletons == true)
+        if (timeRemaining > 0 && legendary == true && spawningNormalSkeletons == true)
         {
             float legendaryRandom = Random.Range(16.1f, 20f);
             spawnRate = legendaryRandom * legendaryInt * spawnLimit;
@@ -325,7 +317,7 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
             {
                 Instantiate(skeletonNormal, spawnerTransform.position, spawnerTransform.rotation);
             }
-            spawningSkeletons = false;
+            spawningNormalSkeletons = false;
         }
     }
 
@@ -338,14 +330,20 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
             float veryEasyRandom = Random.Range(0.1f, 1f);
             spawnRate = veryEasyRandom * veryEasyInt * spawnLimit;
 
+            Debug.Log("Inside 1 very easy");
+
             for (int i = 0; i < spawnRate; i++)
             {
                 randomThrowersRate = Random.Range(0, 3);
+
+                Debug.Log("Inside 2 very easy");
 
                 if (randomThrowersRate == 0)
                 {
                     for (int x = 0; x < 2; x++)
                     {
+                        Debug.Log("Inside 3 very easy");
+
                         Instantiate(skeletonFrisbeeThrower, spawnerTransform.position, spawnerTransform.rotation);
                     }
                 }
@@ -364,8 +362,8 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
                     }
                 }
             }
-            spawningSkeletons = false;
         }
+        spawningSkeletons = false;
     }
 
     public void SkeletonThrowersEasyCalculationAndSpawn()
