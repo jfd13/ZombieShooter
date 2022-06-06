@@ -11,14 +11,15 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
     public GameObject skeletonGrenadeThrower;
     public List<GameObject> Spawners = new List<GameObject>();
     public TextMeshProUGUI onButtonPressText;
-    public TextMeshProUGUI whichWaveItIs;
+    public TextMeshProUGUI whichWaveItIsText;
+    public GameObject whichWaveItIsGameObject;
     public TextMeshProUGUI timeOfCurrentWave;
     public GameObject onButtonPressGameObject;
     public Transform spawnerTransform;
 
 
 
-    public int wavesAmount;
+    int wavesAmount;
     int currentWave;
     int randomThrowersRate;
     float spawnRate;
@@ -44,6 +45,7 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
     bool startButtonWasPressed;
     bool timerIsRunningPreparePhase;
     float timeRemainingPreparePhase;
+    int waveTime;
 
     public void Start()
     {
@@ -55,6 +57,18 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
         SpawnNormalSkeletonsCalculationAndSpawn();
 
         SpawnThrowersCalculationAndSpawn();
+
+        TimerTotal();
+
+        TimerMidWaves();
+
+        TimerPreparePhase();
+
+        WavesCounter();
+
+        Debug.Log($"Very easy: {veryEasy}");
+
+        Debug.Log($"Spawning skeletons: {spawningSkeletons}");
     }
 
     public void SpawnNormalSkeletonsCalculationAndSpawn()
@@ -87,17 +101,28 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
         SkeletonThrowersLegendaryCalculationAndSpawn();
     }
 
+    public void StartButton()
+    {
+        startButtonWasPressed = true;
+        timerIsRunningMidWaves = true;
+        currentWave = 0;
+    }
+
     public void WavesCounter()
     {
         if (startButtonWasPressed == true)
         {
-            whichWaveItIs.SetText($"Wave number {currentWave}");
+            whichWaveItIsText.SetText($"Wave {currentWave}");
+        }
+        else if (startButtonWasPressed == false)
+        {
+            whichWaveItIsGameObject.SetActive(false);
         }
     }
 
     public void TimerTotal()
     {
-        if (timerIsRunning == true)
+        if (timerIsRunning == true && startButtonWasPressed == true)
         {
             if (timeRemaining > 0)
             {
@@ -113,6 +138,7 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
                 timerIsRunningMidWaves = false;
                 timerIsRunningPreparePhase = true;
 
+                increaseTheSpawnLimitOnce = true;
                 CanIncreaseSpawnLimitAndWave();
             }
         }
@@ -129,20 +155,18 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
 
     public void TimerMidWaves()
     {
-        if (timerIsRunningMidWaves == true)
+        if (timerIsRunningMidWaves == true && startButtonWasPressed == true)
         {
             if (timeRemainingMidWaves > 0)
             {
                 timeRemainingMidWaves -= Time.deltaTime;
                 DisplayTimeMidWaves(timeRemainingMidWaves);
             }
-            else if (timeRemaining <= 0)
+            else if (timeRemainingMidWaves <= 0)
             {
                 Debug.Log("End of cycle");
-                timeRemainingMidWaves = 0;
-                timerIsRunningMidWaves = false;
-
                 CanSpawnSkeletons();
+                timeRemainingMidWaves = 5;
             }
         }
     }
@@ -159,7 +183,7 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
     {
         if (timerIsRunningPreparePhase == true)
         {
-            if (timeRemaining > 0)
+            if (timeRemainingPreparePhase > 0)
             {
                 timeRemainingPreparePhase -= Time.deltaTime;
                 DisplayTime(timeRemainingPreparePhase);
@@ -170,6 +194,7 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
                 timeRemainingPreparePhase = 0;
                 timerIsRunningPreparePhase = false;
                 timerIsRunning = true;
+                timeRemaining = waveTime;
             }
         }
     }
@@ -184,8 +209,9 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
 
     public void CanSpawnSkeletons()
     {
-        if (timeRemainingMidWaves == 0 && timerIsRunningMidWaves == false)
+        if (timeRemainingMidWaves <= 0)
         {
+            Debug.Log("Inside can spawn skeleton");
             spawningSkeletons = true;
         }
     }
@@ -207,15 +233,21 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
     }
 
 
+
     public void NormalSkeletonsVeryEasyCalculationAndSpawn()
     {
+        Debug.Log("Inside very easy spawn");
         if (timeRemaining > 0 && veryEasy == true && spawningSkeletons == true)
         {
             float veryEasyRandom = Random.Range(0.1f, 3f);
             spawnRate = veryEasyRandom * veryEasyInt * spawnLimit;
 
+            Debug.Log("Inside very easy IF");
+
             for (int i = 0; i < spawnRate; i++)
             {
+                Debug.Log("Inside very FOR");
+
                 Instantiate(skeletonNormal, spawnerTransform.position, spawnerTransform.rotation);
             }
             spawningSkeletons = false;
@@ -570,6 +602,36 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
         onButtonPressText.SetText("LEGENDARY");
     }
 
+    public void OnButtonPressSetWave10()
+    {
+        wavesAmount = 10;
+    }
+
+    public void OnButtonPressSetWave20()
+    {
+        wavesAmount = 20;
+    }
+
+    public void OnButtonPressSetWave30()
+    {
+        wavesAmount = 30;
+    }
+
+    public void OnButtonPressSetWave40()
+    {
+        wavesAmount = 40;
+    }
+
+    public void OnButtonPressSetWave50()
+    {
+        wavesAmount = 50;
+    }
+
+    public void OnButtonPressSetWaveUnlimited()
+    {
+        wavesAmount = 9999;
+    }
+
     public void SetVariables()
     {
         onButtonPressGameObject.SetActive(false);
@@ -581,6 +643,8 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
         hardInt = 4;
         veryHardInt = 5;
         legendaryInt = 6;
+        spawnLimit = 1;
+        timeRemainingMidWaves = 5;
         timerIsRunning = true;
         veryEasy = false;
         easy = false;
@@ -590,6 +654,7 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
         legendary = false;
         startButtonWasPressed = false;
         timerIsRunningPreparePhase = false;
+        timerIsRunningMidWaves = false;
     }
 
     public void DifficultyVariables(bool veryEasy1, bool easy1, bool normal1, bool hard1, bool veryHard1, bool legendary1)
