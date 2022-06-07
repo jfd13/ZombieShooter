@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    public NormalSkeleton_Health normalSkeletonHealthScript;
+
     // Have to be changed, depends on the gun (Only in unity)
     [Header("General")]
     public Camera mainCamera;
@@ -145,11 +147,19 @@ public class Weapon : MonoBehaviour
             // Shooting
             if (Physics.Raycast(mainCamera.transform.position, forward, out hit, bulletRange))
             {
+                Debug.Log("Inside raycast");
+
                 // Make a hole when shot
                 if (hit.collider.tag == "BulletWall")
                 {
+                    Debug.Log("Bulletwall");
                     Instantiate(bulletHole, hit.point + hit.normal * 0.0001f, Quaternion.LookRotation(-hit.normal));
                     bulletHole.transform.up = hit.normal;
+                }
+                else if(hit.collider.CompareTag("SkeletonNormal"))
+                {
+                    Debug.Log("Skeleton hit");
+                    normalSkeletonHealthScript.Health(10);
                 }
 
                 // prints out the shot object's name

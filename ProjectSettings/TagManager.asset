@@ -8,6 +8,9 @@ TagManager:
   - Wall
   - BananaMan
   - Fire
+  - BulletWall
+  - Grenade
+  - SkeletonNormal
   layers:
   - Default
   - TransparentFX

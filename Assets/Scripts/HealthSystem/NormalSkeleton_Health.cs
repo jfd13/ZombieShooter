@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NormalSkeleton_Health : MonoBehaviour
 {
@@ -10,8 +11,11 @@ public class NormalSkeleton_Health : MonoBehaviour
     public float minRandomModifier;
     public float maxRandomModifier;
 
+
     public void Start()
     {
+        currentHealth = maxHealth;
+
         SetVariables();
     }
 
@@ -20,6 +24,9 @@ public class NormalSkeleton_Health : MonoBehaviour
         randomModifier = Random.Range(minRandomModifier, maxRandomModifier);
 
         currentHealth -= healthSubstraction * randomModifier;
+
+        Debug.Log("Inside health");
+        Debug.Log(currentHealth);
 
         if (currentHealth > 0)
         {

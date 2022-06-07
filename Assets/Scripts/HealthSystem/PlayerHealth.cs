@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour
     public float minRandomModifier;
     public float maxRandomModifier;
 
+
     public void Start()
     {
         currentHealth = maxHealth;
@@ -24,9 +25,8 @@ public class PlayerHealth : MonoBehaviour
     {
         randomModifier = Random.Range(minRandomModifier, maxRandomModifier);
 
-        currentHealth = currentHealth - (healthSubstraction * randomModifier);
+        currentHealth -= healthSubstraction * randomModifier;
         healthBar.value = currentHealth;
-        Debug.Log(currentHealth);
 
         if (currentHealth > 0)
         {

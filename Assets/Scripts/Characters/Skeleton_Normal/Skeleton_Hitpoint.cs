@@ -113,7 +113,7 @@ public class Skeleton_Hitpoint : MonoBehaviour
         {
             isSpeedHighEnoughBool = false;
             didHitHappen = true;
-            playerHealthScript.Health(-1);
+            playerHealthScript.Health(1);
             Debug.Log("Hit the player");
             //Hit player
         }
