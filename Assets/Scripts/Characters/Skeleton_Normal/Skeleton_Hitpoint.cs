@@ -9,6 +9,8 @@ public class Skeleton_Hitpoint : MonoBehaviour
     public Transform playerTransform;
     public AudioClip[] AudioClips = new AudioClip[1];
     [HideInInspector] public GameObject skeleton;
+    public PlayerHealth playerHealthScript;
+
 
     [HideInInspector] public int randomNumber;
     Vector3 lastHitBoxPosition;
@@ -20,9 +22,9 @@ public class Skeleton_Hitpoint : MonoBehaviour
     bool isInsideOfPlayer;
     bool didHitHappen;
 
+
     public void Start()
     {
-        Instantiation();
 
         FindParent();
     }
@@ -51,17 +53,6 @@ public class Skeleton_Hitpoint : MonoBehaviour
     public void OnTriggerExit(Collider other)
     {
         isInsideOfPlayer = false;
-    }
-
-    public void SetAClipAndPlayASound(int number)
-    {
-        audioSourceClone.clip = AudioClips[number];
-        audioSourceClone.Play();
-    }
-
-    public void Instantiation()
-    {
-        audioSourceClone = Instantiate(audioSource, playerTransform.position, playerTransform.rotation);
     }
 
     public float VelocityCalculation()
@@ -120,9 +111,10 @@ public class Skeleton_Hitpoint : MonoBehaviour
     {
         if (isInsideOfPlayer == true && isSpeedHighEnoughBool == true && didHitHappen == false)
         {
-            SetAClipAndPlayASound(randomNumber);
             isSpeedHighEnoughBool = false;
             didHitHappen = true;
+            playerHealthScript.Health(-1);
+            Debug.Log("Hit the player");
             //Hit player
         }
     }

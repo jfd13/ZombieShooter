@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public Slider healthBar;
+
     public float maxHealth;
     float currentHealth;
     float randomModifier;
@@ -12,6 +15,8 @@ public class PlayerHealth : MonoBehaviour
 
     public void Start()
     {
+        currentHealth = maxHealth;
+
         SetVariables();
     }
 
@@ -19,7 +24,9 @@ public class PlayerHealth : MonoBehaviour
     {
         randomModifier = Random.Range(minRandomModifier, maxRandomModifier);
 
-        currentHealth -= healthSubstraction * randomModifier;
+        currentHealth = currentHealth - (healthSubstraction * randomModifier);
+        healthBar.value = currentHealth;
+        Debug.Log(currentHealth);
 
         if (currentHealth > 0)
         {

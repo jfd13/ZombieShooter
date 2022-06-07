@@ -10,7 +10,6 @@ public class SkeletonSpellCaster_SpellCast : MonoBehaviour
     public SkeletonSpellCaster_Variables skeletonSpellCasterVariablesScript; //Skeleton spell caster variables script
     public GameObject lightningGameObject; //Lightning game object
     public GameObject afterburnerGameObject; // Afterburner game object
-    public SkeletonSpellCaster_ShootSoundEffect skeletonSpellCasterShootSoundEffect;
 
     //-------------------------------------------------------------------------------------------------------------------------------
 
@@ -204,10 +203,8 @@ public class SkeletonSpellCaster_SpellCast : MonoBehaviour
     //Enables spellcasting
     IEnumerator SpellCast()
     {
-        skeletonSpellCasterShootSoundEffect.OnSpellSound();
         spellCastBool = false;
         yield return new WaitForSeconds(2.6f);
-        skeletonSpellCasterShootSoundEffect.ShootSound();
         yield return new WaitForSeconds(0.2f);
         canApplyDamage = true;
         lightningGameObject.SetActive(true);
