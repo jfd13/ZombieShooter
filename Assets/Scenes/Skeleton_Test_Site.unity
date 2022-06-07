@@ -3731,7 +3731,7 @@ PrefabInstance:
     - target: {fileID: 483228580227768097, guid: f3a9173a808a8924cb5d65e63134d287,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3526208615895280946, guid: f3a9173a808a8924cb5d65e63134d287,
         type: 3}
@@ -5444,6 +5444,10 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: m_MouseLook.lockCursor
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 14300000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_Center.x
       value: 0
@@ -6689,7 +6693,7 @@ PrefabInstance:
     - target: {fileID: 5653791331337903481, guid: b907f356579664446a1abf233595e1cb,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5653791331337903483, guid: b907f356579664446a1abf233595e1cb,
         type: 3}
@@ -6969,7 +6973,7 @@ PrefabInstance:
     - target: {fileID: 588958005416478074, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4501136685151434601, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0,
         type: 3}
@@ -7472,13 +7476,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 935051051}
         m_TargetAssemblyTypeName: CanvasRotationAndSound_WAVESSELECTION, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: OnClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -8068,7 +8072,7 @@ PrefabInstance:
     - target: {fileID: 8774332935875440315, guid: 287bf610384063b42a14b96af05c5a1c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 287bf610384063b42a14b96af05c5a1c, type: 3}
