@@ -244,7 +244,7 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
     {
         if (timeRemaining > 0 && veryEasy == true && spawningNormalSkeletons == true)
         {
-            float veryEasyRandom = Random.Range(0.1f, 3f);
+            float veryEasyRandom = Random.Range(0.1f, 0.5f);
             spawnRate = veryEasyRandom * veryEasyInt * spawnLimit;
 
             int spawnSkeletonsRandomly = Random.Range(minAmountOfSpawnObjects, maxAmountOfSpawnObjects);
@@ -261,7 +261,7 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
     {
         if (timeRemaining > 0 && easy == true && spawningNormalSkeletons == true)
         {
-            float easyRandom = Random.Range(3.1f, 6f);
+            float easyRandom = Random.Range(0.6f, 1f);
             spawnRate = easyRandom * easyInt * spawnLimit;
 
             int spawnSkeletonsRandomly = Random.Range(minAmountOfSpawnObjects, maxAmountOfSpawnObjects);
@@ -278,7 +278,7 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
     {
         if (timeRemaining > 0 && normal == true && spawningNormalSkeletons == true)
         {
-            float normalRandom = Random.Range(6.1f, 9f);
+            float normalRandom = Random.Range(1.1f, 1.5f);
             spawnRate = normalRandom * normalInt * spawnLimit;
 
             int spawnSkeletonsRandomly = Random.Range(minAmountOfSpawnObjects, maxAmountOfSpawnObjects);
@@ -295,7 +295,7 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
     {
         if (timeRemaining > 0 && hard == true && spawningNormalSkeletons == true)
         {
-            float hardRandom = Random.Range(9.1f, 12f);
+            float hardRandom = Random.Range(1.6f, 2f);
             spawnRate = hardRandom * hardInt * spawnLimit;
 
             int spawnSkeletonsRandomly = Random.Range(minAmountOfSpawnObjects, maxAmountOfSpawnObjects);
@@ -313,7 +313,7 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
         if (timeRemaining > 0 && veryHard == true && spawningNormalSkeletons == true)
         {
             Debug.Log("in if statement very hard");
-            float veryHardRandom = Random.Range(12.1f, 15f);
+            float veryHardRandom = Random.Range(2.1f, 2.5f);
             spawnRate = veryHardRandom * veryHardInt * spawnLimit;
 
             int spawnSkeletonsRandomly = Random.Range(minAmountOfSpawnObjects, maxAmountOfSpawnObjects);
@@ -331,7 +331,7 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
     {
         if (timeRemaining > 0 && legendary == true && spawningNormalSkeletons == true)
         {
-            float legendaryRandom = Random.Range(16.1f, 20f);
+            float legendaryRandom = Random.Range(2.6f, 3f);
             spawnRate = legendaryRandom * legendaryInt * spawnLimit;
 
             int spawnSkeletonsRandomly = Random.Range(minAmountOfSpawnObjects, maxAmountOfSpawnObjects);
@@ -350,7 +350,7 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
     {
         if (timeRemaining > 0 && veryEasy == true && spawningSkeletons == true)
         {
-            float veryEasyRandom = Random.Range(0.1f, 1f);
+            float veryEasyRandom = Random.Range(0.1f, 0.3f);
             spawnRate = veryEasyRandom * veryEasyInt * spawnLimit;
 
             int spawnSkeletonsRandomly = Random.Range(minAmountOfSpawnObjects, maxAmountOfSpawnObjects);
@@ -389,7 +389,7 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
     {
         if (timeRemaining > 0 && easy == true && spawningSkeletons == true)
         {
-            float easyRandom = Random.Range(1.1f, 2f);
+            float easyRandom = Random.Range(0.4f, 0.8f);
             spawnRate = easyRandom * easyInt * spawnLimit;
 
             int spawnSkeletonsRandomly = Random.Range(minAmountOfSpawnObjects, maxAmountOfSpawnObjects);
@@ -428,7 +428,7 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
     {
         if (timeRemaining > 0 && normal == true && spawningSkeletons == true)
         {
-            float normalRandom = Random.Range(3.1f, 4f);
+            float normalRandom = Random.Range(0.8f, 1.2f);
             spawnRate = normalRandom * normalInt * spawnLimit;
 
             int spawnSkeletonsRandomly = Random.Range(minAmountOfSpawnObjects, maxAmountOfSpawnObjects);
@@ -467,7 +467,7 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
     {
         if (timeRemaining > 0 && hard == true && spawningSkeletons == true)
         {
-            float hardRandom = Random.Range(4.1f, 5f);
+            float hardRandom = Random.Range(1.2f, 1.6f);
             spawnRate = hardRandom * hardInt * spawnLimit;
 
             int spawnSkeletonsRandomly = Random.Range(minAmountOfSpawnObjects, maxAmountOfSpawnObjects);
@@ -506,7 +506,7 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
     {
         if (timeRemaining > 0 && veryHard == true && spawningSkeletons == true)
         {
-            float veryHardRandom = Random.Range(5.1f, 6f);
+            float veryHardRandom = Random.Range(1.6f, 2f);
             spawnRate = veryHardRandom * veryHardInt * spawnLimit;
 
             int spawnSkeletonsRandomly = Random.Range(minAmountOfSpawnObjects, maxAmountOfSpawnObjects);
@@ -545,7 +545,7 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
     {
         if (timeRemaining > 0 && legendary == true && spawningSkeletons == true)
         {
-            float legendaryRandom = Random.Range(7.1f, 12f);
+            float legendaryRandom = Random.Range(2f, 2.6f);
             spawnRate = legendaryRandom * legendaryInt * spawnLimit;
 
             int spawnSkeletonsRandomly = Random.Range(minAmountOfSpawnObjects, maxAmountOfSpawnObjects);

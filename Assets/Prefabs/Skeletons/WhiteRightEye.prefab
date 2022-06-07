@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4786844293611444531}
   - component: {fileID: 3955279520739905344}
   - component: {fileID: 7011140969173467181}
-  - component: {fileID: 7769098037157027456}
   m_Layer: 7
   m_Name: WhiteRightEye
   m_TagString: Untagged
@@ -84,20 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7769098037157027456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1092067825517105925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 0f981f3a6d5e04748a294dcc2c359eec, type: 2}
-  isGlobal: 0
-  blendDistance: 50
-  weight: 1
-  priority: 0
