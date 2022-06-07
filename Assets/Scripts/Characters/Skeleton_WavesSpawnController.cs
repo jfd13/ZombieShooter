@@ -83,6 +83,8 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
 
         NormalSkeletonsHardCalculationAndSpawn();
 
+        NormalSkeletonsVeryHardCalculationAndSpawn();
+
         NormalSkeletonsLegendaryCalculationAndSpawn();
     }
 
@@ -310,6 +312,7 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
     {
         if (timeRemaining > 0 && veryHard == true && spawningNormalSkeletons == true)
         {
+            Debug.Log("in if statement very hard");
             float veryHardRandom = Random.Range(12.1f, 15f);
             spawnRate = veryHardRandom * veryHardInt * spawnLimit;
 
@@ -317,6 +320,7 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
 
             for (int i = 0; i < spawnRate; i++)
             {
+                Debug.Log("in FOR statement very hard");
                 Instantiate(skeletonNormal, spawners[spawnSkeletonsRandomly].position, spawners[spawnSkeletonsRandomly].rotation);
             }
             spawningNormalSkeletons = false;

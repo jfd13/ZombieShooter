@@ -224,7 +224,6 @@ public class SkeletonGrenadeThrower_GrenadeThrowing : MonoBehaviour
     //Turn to player when throwing, offset by 90 degrees so that skeleton throws at the player
     public void TurnToPlayerWhenThrowing()
     {
-        Debug.Log("Inside turn to player");
         Vector3 lookPos = playerTransform.position - transform.position;
         Quaternion lookRot = Quaternion.LookRotation(lookPos, Vector3.up);
         float eulerY = lookRot.eulerAngles.y;

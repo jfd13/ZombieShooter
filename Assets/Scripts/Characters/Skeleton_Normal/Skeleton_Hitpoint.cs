@@ -29,7 +29,7 @@ public class Skeleton_Hitpoint : MonoBehaviour
 
     public void Update()
     {
-        randomNumber = Random.Range(0, 2);
+        randomNumber = Random.Range(0, 23);
 
         HitSpeed();
 
