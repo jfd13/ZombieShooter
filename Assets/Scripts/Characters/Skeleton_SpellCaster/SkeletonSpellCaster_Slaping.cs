@@ -16,7 +16,7 @@ public class SkeletonSpellCaster_Slaping : MonoBehaviour
     float spellCastDistance; //Float throwing distance, distance which determines if skeleton can already throw or not
     float slapDistance; //Distance in which the skeleton can slap the player
     bool canSkeletonSlap; //Can skeleton slap already or not variable
-    public bool isSlaping;
+    [HideInInspector] public bool isSlaping;
 
 
     //-------------------------------------------------------------------------------------------------------------------------------
