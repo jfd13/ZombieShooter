@@ -16,6 +16,8 @@ public class SkeletonSpellCaster_Slaping : MonoBehaviour
     float spellCastDistance; //Float throwing distance, distance which determines if skeleton can already throw or not
     float slapDistance; //Distance in which the skeleton can slap the player
     bool canSkeletonSlap; //Can skeleton slap already or not variable
+    public bool isSlaping;
+
 
     //-------------------------------------------------------------------------------------------------------------------------------
 
@@ -50,6 +52,8 @@ public class SkeletonSpellCaster_Slaping : MonoBehaviour
         {
             //Disable the slaping animation
             SlapingAnimation(false, 0, 0);
+
+            isSlaping = false;
         }
 
         //If distance is smaller than throwing distance and distance is bigger than slap distance then initiate the statement
@@ -57,6 +61,8 @@ public class SkeletonSpellCaster_Slaping : MonoBehaviour
         {
             //Disable the slaping animation
             SlapingAnimation(false, 0, 0);
+
+            isSlaping = false;
         }
 
         //If distance is smaller than throwing distance and distance is smaller than slap distance and can skeleton slap on true then initiate the statement
@@ -67,6 +73,8 @@ public class SkeletonSpellCaster_Slaping : MonoBehaviour
 
             //Disable the walking animation
             WalkingAnimation(false, 0, 0);
+
+            isSlaping = true;
         }
     }
 

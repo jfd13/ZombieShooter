@@ -9,6 +9,7 @@ public class SkeletonSpellCaster_SearchForPlayer : MonoBehaviour
     public Animator skeletonSpellCasterAnimator; //Skeleton spell caster animator
     public SkeletonSpellCaster_Variables skeletonSpellCasterVariablesScript; //Skeleton spell caster variables script
     public SkeletonSpellCaster_SpellCast skeletonSpellCasterSpellCastScript;
+    public SkeletonSpellCaster_Slaping skeletonSpellCasterSlapingScript;
 
     //-------------------------------------------------------------------------------------------------------------------------------
 
@@ -18,6 +19,7 @@ public class SkeletonSpellCaster_SearchForPlayer : MonoBehaviour
     bool spellCastBool;
     bool walkTowardsPlayerBool;
     bool isSpellCasting;
+    bool isSlaping;
 
     public void Update()
     {
@@ -64,7 +66,7 @@ public class SkeletonSpellCaster_SearchForPlayer : MonoBehaviour
             //Called method for walking animation and disabled it
             WalkingAnimation(false, 0, 0);
         }
-        else if (spellCastBool == false && walkTowardsPlayerBool == true && isSpellCasting == false)
+        else if (spellCastBool == false && walkTowardsPlayerBool == true && isSpellCasting == false && isSlaping == false)
         {
             WalkToPlayer();
         }
@@ -105,5 +107,6 @@ public class SkeletonSpellCaster_SearchForPlayer : MonoBehaviour
         walkTowardsPlayerBool = skeletonSpellCasterSpellCastScript.walkTowardsPlayerBool;
         spellCastBool = skeletonSpellCasterSpellCastScript.spellCastBool;
         isSpellCasting = skeletonSpellCasterSpellCastScript.isSpellCasting;
+        isSlaping = skeletonSpellCasterSlapingScript.isSlaping;
     }
 }
