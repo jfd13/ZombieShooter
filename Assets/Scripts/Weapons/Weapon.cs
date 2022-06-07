@@ -156,12 +156,10 @@ public class Weapon : MonoBehaviour
                     Instantiate(bulletHole, hit.point + hit.normal * 0.0001f, Quaternion.LookRotation(-hit.normal));
                     bulletHole.transform.up = hit.normal;
                 }
-                else if(hit.collider.CompareTag("SkeletonNormal"))
+                else if (hit.collider.tag == "SkeletonNormal")
                 {
-                    Debug.Log("Skeleton hit");
-                    normalSkeletonHealthScript.Health(10);
+                    hit.collider.GetComponent<NormalSkeleton_Health>().Health(5);
                 }
-
                 // prints out the shot object's name
                 print(hit.collider.gameObject.name);
             }
@@ -223,6 +221,11 @@ public class Weapon : MonoBehaviour
                 Instantiate(bulletHole, hit.point + hit.normal * 0.0001f, Quaternion.LookRotation(-hit.normal));
                 bulletHole.transform.up = hit.normal;
             }
+            else if (hit.collider.tag == "SkeletonNormal")
+            {
+                hit.collider.GetComponent<NormalSkeleton_Health>().Health(5);
+            }
+
 
             // prints out the shot object's name
             print(hit.collider.gameObject.name);

@@ -28,6 +28,8 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= healthSubstraction * randomModifier;
         healthBar.value = currentHealth;
 
+        Debug.Log(currentHealth);
+
         if (currentHealth > 0)
         {
             return;
