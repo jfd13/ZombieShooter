@@ -1749,7 +1749,7 @@ TerrainCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 452815620}
-  m_Material: {fileID: 13400000, guid: c8317333a919ea24b9ebe9e277121e89, type: 2}
+  m_Material: {fileID: 0}
   m_Enabled: 1
   m_TerrainData: {fileID: 15600000, guid: 11ed9334eb074044b994a44814f1eb48, type: 2}
   m_EnableTreeColliders: 1
@@ -3875,6 +3875,7 @@ PrefabInstance:
       objectReference: {fileID: 676307925}
     m_RemovedComponents:
     - {fileID: 8472723092766711631, guid: f3a9173a808a8924cb5d65e63134d287, type: 3}
+    - {fileID: 8472723092766711474, guid: f3a9173a808a8924cb5d65e63134d287, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f3a9173a808a8924cb5d65e63134d287, type: 3}
 --- !u!1 &896958913
 GameObject:
@@ -6608,6 +6609,11 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5653791331337903472, guid: b907f356579664446a1abf233595e1cb,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5653791331337903474, guid: b907f356579664446a1abf233595e1cb,
         type: 3}
       propertyPath: skeletonBattleCry1
@@ -6618,6 +6624,11 @@ PrefabInstance:
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 1053446873}
+    - target: {fileID: 5653791331337903476, guid: b907f356579664446a1abf233595e1cb,
+        type: 3}
+      propertyPath: distanceCheckRate
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5653791331337903477, guid: b907f356579664446a1abf233595e1cb,
         type: 3}
       propertyPath: playerTransform
@@ -6696,7 +6707,7 @@ PrefabInstance:
     - target: {fileID: 5653791331337903481, guid: b907f356579664446a1abf233595e1cb,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5653791331337903483, guid: b907f356579664446a1abf233595e1cb,
         type: 3}
@@ -6718,7 +6729,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -14.843
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5653791331337903472, guid: b907f356579664446a1abf233595e1cb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b907f356579664446a1abf233595e1cb, type: 3}
 --- !u!1 &1649891370
 GameObject:
@@ -6976,7 +6988,7 @@ PrefabInstance:
     - target: {fileID: 588958005416478074, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4501136685151434601, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0,
         type: 3}
@@ -7100,6 +7112,7 @@ PrefabInstance:
       objectReference: {fileID: 1053446873}
     m_RemovedComponents:
     - {fileID: 8866896318601600123, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0, type: 3}
+    - {fileID: 8866896318601600068, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 39e9b9b23bdd6714bb1c797f44f3dcb0, type: 3}
 --- !u!4 &1671004476 stripped
 Transform:
@@ -8122,10 +8135,11 @@ PrefabInstance:
     - target: {fileID: 8774332935875440315, guid: 287bf610384063b42a14b96af05c5a1c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 785135172102322103, guid: 287bf610384063b42a14b96af05c5a1c, type: 3}
+    - {fileID: 785135172102322102, guid: 287bf610384063b42a14b96af05c5a1c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 287bf610384063b42a14b96af05c5a1c, type: 3}
 --- !u!4 &1771038008 stripped
 Transform:

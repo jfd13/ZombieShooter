@@ -13,6 +13,8 @@ public class Skeleton_DistanceCalculation : MonoBehaviour
     //-------------------------------------------------------------------------------------------------------------------------------
 
     static float distance; //Distance - used to calculate distance between skeleton and player
+    float nextDistanceCheck;
+    public float distanceCheckRate;
     [HideInInspector] public int whichAnimationPlays; //Used to randomize which hit animation plays for specific skeleton
 
     //-------------------------------------------------------------------------------------------------------------------------------
@@ -50,8 +52,13 @@ public class Skeleton_DistanceCalculation : MonoBehaviour
 
         //-------------------------------------------------------------------------------------------------------------------------------
 
-        //Calculate distance between player and skeleton
-        distance = Vector3.Distance(playerTransform.position, skeletonTransformClone.position);
+        if (Time.time > nextDistanceCheck)
+        {
+            nextDistanceCheck = Time.time + distanceCheckRate;
+
+            //Calculate distance between player and skeleton
+            distance = Vector3.Distance(playerTransform.position, skeletonTransformClone.position);
+        }
 
         //If at certain distance play walk animation
         if (distance > 2f)
