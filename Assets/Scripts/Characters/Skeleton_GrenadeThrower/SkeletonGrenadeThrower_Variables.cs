@@ -12,4 +12,5 @@ public class SkeletonGrenadeThrower_Variables : MonoBehaviour
     public float radiusOfGrenadeExplosion; //Radius in which items are affected by explosion 
     public float explosionForceOfGrenade; //A force of explosion on items in radius
     public float upwardForceOnGrenadeExplosion; //A force of explosion on items in radius upwards
+    public float distanceCheckRate; //The rate at which skeletons checks distance between player and himself to prevent lag
 }

@@ -43,7 +43,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Project
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 121}
   m_MaxSize: {x: 4000, y: 4021}
   vertical: 0
-  controlID: 19
+  controlID: 17
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 48
+  controlID: 73
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -245,7 +245,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 129
+  controlID: 79
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -691,7 +691,7 @@ MonoBehaviour:
       containerId: overlay-container--right
       floating: 0
       collapsed: 0
-      displayed: 1
+      displayed: 0
       snapOffset: {x: -225, y: -203}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 3
@@ -708,9 +708,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -46.352894, y: 3.0168624, z: -25.625463}
+    m_Target: {x: -21.002865, y: 3.376417, z: -18.130913}
     speed: 2
-    m_Value: {x: -46.352894, y: 3.0168624, z: -25.625463}
+    m_Value: {x: -21.002865, y: 3.376417, z: -18.130913}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -757,9 +757,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.03067703, y: -0.63928044, z: 0.025493331, w: -0.76794976}
+    m_Target: {x: -0.030916682, y: -0.8442058, z: 0.048913952, w: -0.53290164}
     speed: 2
-    m_Value: {x: -0.029524831, y: -0.63931245, z: 0.02453415, w: -0.76798826}
+    m_Value: {x: -0.030916434, y: -0.84419906, z: 0.04891356, w: -0.5328974}
   m_Size:
     m_Target: 1.3309027
     speed: 2
@@ -820,9 +820,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 9cf7ffff
-      m_LastClickedID: -2148
-      m_ExpandedIDs: 02fbffff7c610000c261000008620000
+      m_SelectedIDs: 080c0000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 02fbffff7c610000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1108,22 +1108,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Characters/Skeleton_SpellCaster
+    - Assets/Scripts/Characters/Skeleton_Normal
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/Scripts/Characters/Skeleton_SpellCaster
+  - Assets/Scripts/Characters/Skeleton_Normal
   m_LastFoldersGridSize: 96
   m_LastProjectPath: E:\Game Projects\Projekti\Zombie_Shooter2
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 2}
-    m_SelectedIDs: 54760000
-    m_LastClickedID: 30292
-    m_ExpandedIDs: 00000000826f0000be6f00004876000000ca9a3b
+    m_SelectedIDs: d26f0000
+    m_LastClickedID: 28626
+    m_ExpandedIDs: 000000007c6f0000ba6f0000c66f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1151,7 +1151,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000826f0000
+    m_ExpandedIDs: 000000007c6f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

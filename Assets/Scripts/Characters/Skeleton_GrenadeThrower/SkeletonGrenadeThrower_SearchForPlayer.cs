@@ -17,6 +17,8 @@ public class SkeletonGrenadeThrower_SearchForPlayer : MonoBehaviour
     float slapDistance; //Float slap distance
     bool grenadeThrowingBool;
     bool walkTowardsPlayerBool;
+    float nextDistanceCheck;
+    float distanceCheckRate;
 
     public void Update()
     {
@@ -35,7 +37,13 @@ public class SkeletonGrenadeThrower_SearchForPlayer : MonoBehaviour
     //Method in which I calculate distance between skeleton and player
     public void DistanceFromPlayer()
     {
-        distance = Vector3.Distance(playerTransform.position, skeletonGrenadeThrowerTransform.position);
+        if (Time.time > nextDistanceCheck)
+        {
+            nextDistanceCheck = Time.time + distanceCheckRate;
+
+            //Calculate distance between player and skeleton
+            distance = Vector3.Distance(playerTransform.position, skeletonGrenadeThrowerTransform.position);
+        }
     }
 
 
@@ -105,5 +113,6 @@ public class SkeletonGrenadeThrower_SearchForPlayer : MonoBehaviour
         slapDistance = skeletonGrenadeThrowerVariablesScript.slapDistance;
         walkTowardsPlayerBool = skeletonGrenadeThrowerGrenadeThrowingScript.walkTowardsPlayerBool;
         grenadeThrowingBool = skeletonGrenadeThrowerGrenadeThrowingScript.grenadeThrowingBool;
+        distanceCheckRate = skeletonGrenadeThrowerVariablesScript.distanceCheckRate;
     }
 }

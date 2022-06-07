@@ -10,4 +10,5 @@ public class SkeletonSpellCaster_Variables : MonoBehaviour
     public float slapDistance; //Distance in which the skeleton slaps the player
     public int ObstacleDistanceCheck; //Maximum distance of skeletons raycasting length
     public float lightningHitRate; //The rate at which lightning hits/damages the player
+    public float distanceCheckRate; //The rate at which skeletons checks for distance between player and himself to prevent lag
 }

@@ -20,6 +20,8 @@ public class SkeletonSpellCaster_SearchForPlayer : MonoBehaviour
     bool walkTowardsPlayerBool;
     bool isSpellCasting;
     bool isSlaping;
+    float nextDistanceCheck;
+    float distanceCheckRate;
 
     public void Update()
     {
@@ -38,7 +40,13 @@ public class SkeletonSpellCaster_SearchForPlayer : MonoBehaviour
     //Method in which I calculate distance between skeleton and player
     public void DistanceFromPlayer()
     {
-        distance = Vector3.Distance(playerTransform.position, skeletonSpellCasterTransform.position);
+        if (Time.time > nextDistanceCheck)
+        {
+            nextDistanceCheck = Time.time + distanceCheckRate;
+
+            //Calculate distance between player and skeleton
+            distance = Vector3.Distance(playerTransform.position, skeletonSpellCasterTransform.position);
+        }
     }
 
 
@@ -108,5 +116,6 @@ public class SkeletonSpellCaster_SearchForPlayer : MonoBehaviour
         spellCastBool = skeletonSpellCasterSpellCastScript.spellCastBool;
         isSpellCasting = skeletonSpellCasterSpellCastScript.isSpellCasting;
         isSlaping = skeletonSpellCasterSlapingScript.isSlaping;
+        distanceCheckRate = skeletonSpellCasterVariablesScript.distanceCheckRate;
     }
 }

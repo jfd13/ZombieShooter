@@ -18,6 +18,8 @@ public class SkeletonFrisbeeThrower_SearchForPlayer : MonoBehaviour
     bool frisbeeThrowingBool;
     bool walkTowardsPlayerBool;
     bool isSkeletonThrowing;
+    float nextDistanceCheck;
+    float distanceCheckRate;
 
     public void Update()
     {
@@ -36,7 +38,13 @@ public class SkeletonFrisbeeThrower_SearchForPlayer : MonoBehaviour
     //Method in which I calculate distance between skeleton and player
     public void DistanceFromPlayer()
     {
-        distance = Vector3.Distance(playerTransform.position, skeletonFrisbeeThrowerTransform.position);
+        if (Time.time > nextDistanceCheck)
+        {
+            nextDistanceCheck = Time.time + distanceCheckRate;
+
+            //Calculate distance between player and skeleton
+            distance = Vector3.Distance(playerTransform.position, skeletonFrisbeeThrowerTransform.position);
+        }
     }
 
 
@@ -107,5 +115,6 @@ public class SkeletonFrisbeeThrower_SearchForPlayer : MonoBehaviour
         frisbeeThrowingBool = skeletonFrisbeeThrowerFrisbeeThrowingScript.frisbeeThrowingBool;
         walkTowardsPlayerBool = skeletonFrisbeeThrowerFrisbeeThrowingScript.walkTowardsPlayerBool;
         isSkeletonThrowing = skeletonFrisbeeThrowerFrisbeeThrowingScript.isSkeletonThrowing;
+        distanceCheckRate = skeletonFrisbeeThrowerVariablesScript.distanceCheckRate;
     }
 }
