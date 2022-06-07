@@ -9,11 +9,12 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
     public GameObject skeletonFrisbeeThrower;
     public GameObject skeletonSpellCaster;
     public GameObject skeletonGrenadeThrower;
-    public List<GameObject> Spawners = new List<GameObject>();
+    public Transform[] spawners = new Transform[0];
     public TextMeshProUGUI onButtonPressText;
     public TextMeshProUGUI whichWaveItIsText;
     public GameObject whichWaveItIsGameObject;
-    public TextMeshProUGUI timeOfCurrentWave;
+    public TextMeshProUGUI timeOfCurrentWaveText;
+    public GameObject timeOfCurrentWaveGameObject;
     public GameObject onButtonPressGameObject;
     public Transform spawnerTransform;
 
@@ -45,8 +46,11 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
     bool startButtonWasPressed;
     bool timerIsRunningPreparePhase;
     float timeRemainingPreparePhase;
-    int waveTime;
+    public int waveTime;
     bool spawningSkeletons;
+    public int minAmountOfSpawnObjects;
+    public int maxAmountOfSpawnObjects;
+    public int preparePhaseTime;
 
     public void Start()
     {
@@ -102,7 +106,9 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
     {
         startButtonWasPressed = true;
         timerIsRunningMidWaves = true;
-        currentWave = 0;
+        whichWaveItIsGameObject.SetActive(true);
+        timeOfCurrentWaveGameObject.SetActive(true);
+        currentWave = 1;
     }
 
     public void WavesCounter()
@@ -134,6 +140,7 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
                 timerIsRunning = false;
                 timerIsRunningMidWaves = false;
                 timerIsRunningPreparePhase = true;
+                timeRemainingPreparePhase = preparePhaseTime;
 
                 increaseTheSpawnLimitOnce = true;
                 CanIncreaseSpawnLimitAndWave();
@@ -146,7 +153,7 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
         timeToDisplay += 1;
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
-        timeOfCurrentWave.SetText($"{minutes}:{seconds}");
+        timeOfCurrentWaveText.SetText($"{minutes}:{seconds}");
         //Debug.Log($"Minutes: {minutes}, Seconds: {seconds}");
     }
 
@@ -219,12 +226,12 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
         {
             spawnLimit = spawnLimit++;
             currentWave++;
-            onButtonPressText.SetText($"Wave number {currentWave}");
+            timeOfCurrentWaveText.SetText($"Wave number {currentWave}");
             increaseTheSpawnLimitOnce = false;
         }
         else if (currentWave >= wavesAmount && increaseTheSpawnLimitOnce == true)
         {
-            onButtonPressText.SetText($"Wave number {wavesAmount}");
+            timeOfCurrentWaveText.SetText($"Wave number {wavesAmount}");
             increaseTheSpawnLimitOnce = false;
         }
     }
@@ -238,9 +245,11 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
             float veryEasyRandom = Random.Range(0.1f, 3f);
             spawnRate = veryEasyRandom * veryEasyInt * spawnLimit;
 
+            int spawnSkeletonsRandomly = Random.Range(minAmountOfSpawnObjects, maxAmountOfSpawnObjects);
+
             for (int i = 0; i < spawnRate; i++)
             {
-                Instantiate(skeletonNormal, spawnerTransform.position, spawnerTransform.rotation);
+                Instantiate(skeletonNormal, spawners[spawnSkeletonsRandomly].position, spawners[spawnSkeletonsRandomly].rotation);
             }
             spawningNormalSkeletons = false;
         }
@@ -253,9 +262,11 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
             float easyRandom = Random.Range(3.1f, 6f);
             spawnRate = easyRandom * easyInt * spawnLimit;
 
+            int spawnSkeletonsRandomly = Random.Range(minAmountOfSpawnObjects, maxAmountOfSpawnObjects);
+
             for (int i = 0; i < spawnRate; i++)
             {
-                Instantiate(skeletonNormal, spawnerTransform.position, spawnerTransform.rotation);
+                Instantiate(skeletonNormal, spawners[spawnSkeletonsRandomly].position, spawners[spawnSkeletonsRandomly].rotation);
             }
             spawningNormalSkeletons = false;
         }
@@ -268,9 +279,11 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
             float normalRandom = Random.Range(6.1f, 9f);
             spawnRate = normalRandom * normalInt * spawnLimit;
 
+            int spawnSkeletonsRandomly = Random.Range(minAmountOfSpawnObjects, maxAmountOfSpawnObjects);
+
             for (int i = 0; i < spawnRate; i++)
             {
-                Instantiate(skeletonNormal, spawnerTransform.position, spawnerTransform.rotation);
+                Instantiate(skeletonNormal, spawners[spawnSkeletonsRandomly].position, spawners[spawnSkeletonsRandomly].rotation);
             }
             spawningNormalSkeletons = false;
         }
@@ -283,9 +296,11 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
             float hardRandom = Random.Range(9.1f, 12f);
             spawnRate = hardRandom * hardInt * spawnLimit;
 
+            int spawnSkeletonsRandomly = Random.Range(minAmountOfSpawnObjects, maxAmountOfSpawnObjects);
+
             for (int i = 0; i < spawnRate; i++)
             {
-                Instantiate(skeletonNormal, spawnerTransform.position, spawnerTransform.rotation);
+                Instantiate(skeletonNormal, spawners[spawnSkeletonsRandomly].position, spawners[spawnSkeletonsRandomly].rotation);
             }
             spawningNormalSkeletons = false;
         }
@@ -298,9 +313,11 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
             float veryHardRandom = Random.Range(12.1f, 15f);
             spawnRate = veryHardRandom * veryHardInt * spawnLimit;
 
+            int spawnSkeletonsRandomly = Random.Range(minAmountOfSpawnObjects, maxAmountOfSpawnObjects);
+
             for (int i = 0; i < spawnRate; i++)
             {
-                Instantiate(skeletonNormal, spawnerTransform.position, spawnerTransform.rotation);
+                Instantiate(skeletonNormal, spawners[spawnSkeletonsRandomly].position, spawners[spawnSkeletonsRandomly].rotation);
             }
             spawningNormalSkeletons = false;
         }
@@ -313,9 +330,11 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
             float legendaryRandom = Random.Range(16.1f, 20f);
             spawnRate = legendaryRandom * legendaryInt * spawnLimit;
 
+            int spawnSkeletonsRandomly = Random.Range(minAmountOfSpawnObjects, maxAmountOfSpawnObjects);
+
             for (int i = 0; i < spawnRate; i++)
             {
-                Instantiate(skeletonNormal, spawnerTransform.position, spawnerTransform.rotation);
+                Instantiate(skeletonNormal, spawners[spawnSkeletonsRandomly].position, spawners[spawnSkeletonsRandomly].rotation);
             }
             spawningNormalSkeletons = false;
         }
@@ -330,40 +349,36 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
             float veryEasyRandom = Random.Range(0.1f, 1f);
             spawnRate = veryEasyRandom * veryEasyInt * spawnLimit;
 
-            Debug.Log("Inside 1 very easy");
+            int spawnSkeletonsRandomly = Random.Range(minAmountOfSpawnObjects, maxAmountOfSpawnObjects);
 
             for (int i = 0; i < spawnRate; i++)
             {
                 randomThrowersRate = Random.Range(0, 3);
 
-                Debug.Log("Inside 2 very easy");
-
                 if (randomThrowersRate == 0)
                 {
                     for (int x = 0; x < 2; x++)
                     {
-                        Debug.Log("Inside 3 very easy");
-
-                        Instantiate(skeletonFrisbeeThrower, spawnerTransform.position, spawnerTransform.rotation);
+                        Instantiate(skeletonFrisbeeThrower, spawners[spawnSkeletonsRandomly].position, spawners[spawnSkeletonsRandomly].rotation);
                     }
                 }
                 else if (randomThrowersRate == 1)
                 {
                     for (int y = 0; y < 2; y++)
                     {
-                        Instantiate(skeletonGrenadeThrower, spawnerTransform.position, spawnerTransform.rotation);
+                        Instantiate(skeletonGrenadeThrower, spawners[spawnSkeletonsRandomly].position, spawners[spawnSkeletonsRandomly].rotation);
                     }
                 }
                 else if (randomThrowersRate == 2)
                 {
                     for (int z = 0; z < 2; z++)
                     {
-                        Instantiate(skeletonSpellCaster, spawnerTransform.position, spawnerTransform.rotation);
+                        Instantiate(skeletonSpellCaster, spawners[spawnSkeletonsRandomly].position, spawners[spawnSkeletonsRandomly].rotation);
                     }
                 }
             }
+            spawningSkeletons = false;
         }
-        spawningSkeletons = false;
     }
 
     public void SkeletonThrowersEasyCalculationAndSpawn()
@@ -373,6 +388,8 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
             float easyRandom = Random.Range(1.1f, 2f);
             spawnRate = easyRandom * easyInt * spawnLimit;
 
+            int spawnSkeletonsRandomly = Random.Range(minAmountOfSpawnObjects, maxAmountOfSpawnObjects);
+
             for (int i = 0; i < spawnRate; i++)
             {
                 randomThrowersRate = Random.Range(0, 3);
@@ -381,21 +398,21 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
                 {
                     for (int x = 0; x < 2; x++)
                     {
-                        Instantiate(skeletonFrisbeeThrower, spawnerTransform.position, spawnerTransform.rotation);
+                        Instantiate(skeletonFrisbeeThrower, spawners[spawnSkeletonsRandomly].position, spawners[spawnSkeletonsRandomly].rotation);
                     }
                 }
                 else if (randomThrowersRate == 1)
                 {
                     for (int y = 0; y < 2; y++)
                     {
-                        Instantiate(skeletonGrenadeThrower, spawnerTransform.position, spawnerTransform.rotation);
+                        Instantiate(skeletonGrenadeThrower, spawners[spawnSkeletonsRandomly].position, spawners[spawnSkeletonsRandomly].rotation);
                     }
                 }
                 else if (randomThrowersRate == 2)
                 {
                     for (int z = 0; z < 2; z++)
                     {
-                        Instantiate(skeletonSpellCaster, spawnerTransform.position, spawnerTransform.rotation);
+                        Instantiate(skeletonSpellCaster, spawners[spawnSkeletonsRandomly].position, spawners[spawnSkeletonsRandomly].rotation);
                     }
                 }
             }
@@ -410,6 +427,8 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
             float normalRandom = Random.Range(3.1f, 4f);
             spawnRate = normalRandom * normalInt * spawnLimit;
 
+            int spawnSkeletonsRandomly = Random.Range(minAmountOfSpawnObjects, maxAmountOfSpawnObjects);
+
             for (int i = 0; i < spawnRate; i++)
             {
                 randomThrowersRate = Random.Range(0, 3);
@@ -418,21 +437,21 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
                 {
                     for (int x = 0; x < 2; x++)
                     {
-                        Instantiate(skeletonFrisbeeThrower, spawnerTransform.position, spawnerTransform.rotation);
+                        Instantiate(skeletonFrisbeeThrower, spawners[spawnSkeletonsRandomly].position, spawners[spawnSkeletonsRandomly].rotation);
                     }
                 }
                 else if (randomThrowersRate == 1)
                 {
                     for (int y = 0; y < 2; y++)
                     {
-                        Instantiate(skeletonGrenadeThrower, spawnerTransform.position, spawnerTransform.rotation);
+                        Instantiate(skeletonGrenadeThrower, spawners[spawnSkeletonsRandomly].position, spawners[spawnSkeletonsRandomly].rotation);
                     }
                 }
                 else if (randomThrowersRate == 2)
                 {
                     for (int z = 0; z < 2; z++)
                     {
-                        Instantiate(skeletonSpellCaster, spawnerTransform.position, spawnerTransform.rotation);
+                        Instantiate(skeletonSpellCaster, spawners[spawnSkeletonsRandomly].position, spawners[spawnSkeletonsRandomly].rotation);
                     }
                 }
             }
@@ -447,6 +466,8 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
             float hardRandom = Random.Range(4.1f, 5f);
             spawnRate = hardRandom * hardInt * spawnLimit;
 
+            int spawnSkeletonsRandomly = Random.Range(minAmountOfSpawnObjects, maxAmountOfSpawnObjects);
+
             for (int i = 0; i < spawnRate; i++)
             {
                 randomThrowersRate = Random.Range(0, 3);
@@ -455,21 +476,21 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
                 {
                     for (int x = 0; x < 2; x++)
                     {
-                        Instantiate(skeletonFrisbeeThrower, spawnerTransform.position, spawnerTransform.rotation);
+                        Instantiate(skeletonFrisbeeThrower, spawners[spawnSkeletonsRandomly].position, spawners[spawnSkeletonsRandomly].rotation);
                     }
                 }
                 else if (randomThrowersRate == 1)
                 {
                     for (int y = 0; y < 2; y++)
                     {
-                        Instantiate(skeletonGrenadeThrower, spawnerTransform.position, spawnerTransform.rotation);
+                        Instantiate(skeletonGrenadeThrower, spawners[spawnSkeletonsRandomly].position, spawners[spawnSkeletonsRandomly].rotation);
                     }
                 }
                 else if (randomThrowersRate == 2)
                 {
                     for (int z = 0; z < 2; z++)
                     {
-                        Instantiate(skeletonSpellCaster, spawnerTransform.position, spawnerTransform.rotation);
+                        Instantiate(skeletonSpellCaster, spawners[spawnSkeletonsRandomly].position, spawners[spawnSkeletonsRandomly].rotation);
                     }
                 }
             }
@@ -484,6 +505,8 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
             float veryHardRandom = Random.Range(5.1f, 6f);
             spawnRate = veryHardRandom * veryHardInt * spawnLimit;
 
+            int spawnSkeletonsRandomly = Random.Range(minAmountOfSpawnObjects, maxAmountOfSpawnObjects);
+
             for (int i = 0; i < spawnRate; i++)
             {
                 randomThrowersRate = Random.Range(0, 3);
@@ -492,21 +515,21 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
                 {
                     for (int x = 0; x < 2; x++)
                     {
-                        Instantiate(skeletonFrisbeeThrower, spawnerTransform.position, spawnerTransform.rotation);
+                        Instantiate(skeletonFrisbeeThrower, spawners[spawnSkeletonsRandomly].position, spawners[spawnSkeletonsRandomly].rotation);
                     }
                 }
                 else if (randomThrowersRate == 1)
                 {
                     for (int y = 0; y < 2; y++)
                     {
-                        Instantiate(skeletonGrenadeThrower, spawnerTransform.position, spawnerTransform.rotation);
+                        Instantiate(skeletonGrenadeThrower, spawners[spawnSkeletonsRandomly].position, spawners[spawnSkeletonsRandomly].rotation);
                     }
                 }
                 else if (randomThrowersRate == 2)
                 {
                     for (int z = 0; z < 2; z++)
                     {
-                        Instantiate(skeletonSpellCaster, spawnerTransform.position, spawnerTransform.rotation);
+                        Instantiate(skeletonSpellCaster, spawners[spawnSkeletonsRandomly].position, spawners[spawnSkeletonsRandomly].rotation);
                     }
                 }
             }
@@ -521,6 +544,8 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
             float legendaryRandom = Random.Range(7.1f, 12f);
             spawnRate = legendaryRandom * legendaryInt * spawnLimit;
 
+            int spawnSkeletonsRandomly = Random.Range(minAmountOfSpawnObjects, maxAmountOfSpawnObjects);
+
             for (int i = 0; i < spawnRate; i++)
             {
                 randomThrowersRate = Random.Range(0, 3);
@@ -529,21 +554,21 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
                 {
                     for (int x = 0; x < 2; x++)
                     {
-                        Instantiate(skeletonFrisbeeThrower, spawnerTransform.position, spawnerTransform.rotation);
+                        Instantiate(skeletonFrisbeeThrower, spawners[spawnSkeletonsRandomly].position, spawners[spawnSkeletonsRandomly].rotation);
                     }
                 }
                 else if (randomThrowersRate == 1)
                 {
                     for (int y = 0; y < 2; y++)
                     {
-                        Instantiate(skeletonGrenadeThrower, spawnerTransform.position, spawnerTransform.rotation);
+                        Instantiate(skeletonGrenadeThrower, spawners[spawnSkeletonsRandomly].position, spawners[spawnSkeletonsRandomly].rotation);
                     }
                 }
                 else if (randomThrowersRate == 2)
                 {
                     for (int z = 0; z < 2; z++)
                     {
-                        Instantiate(skeletonSpellCaster, spawnerTransform.position, spawnerTransform.rotation);
+                        Instantiate(skeletonSpellCaster, spawners[spawnSkeletonsRandomly].position, spawners[spawnSkeletonsRandomly].rotation);
                     }
                 }
             }
@@ -633,8 +658,10 @@ public class Skeleton_WavesSpawnController : MonoBehaviour
     public void SetVariables()
     {
         onButtonPressGameObject.SetActive(false);
+        whichWaveItIsGameObject.SetActive(false);
+        timeOfCurrentWaveGameObject.SetActive(false);
         currentWave = 1;
-        timeRemaining = 120;
+        timeRemaining = waveTime;
         veryEasyInt = 1;
         easyInt = 2;
         normalInt = 3;
