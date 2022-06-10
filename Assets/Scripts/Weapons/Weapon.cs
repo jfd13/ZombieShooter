@@ -38,6 +38,7 @@ public class Weapon : MonoBehaviour
     bool canShoot;
     bool courontinePauser;
     bool tapShooting;
+    bool shootingWhileZooming;
 
     // No changing values/bools
     [Header("Info")]
@@ -222,16 +223,6 @@ public class Weapon : MonoBehaviour
 
             // prints out the shot object's name
             print(hit.collider.gameObject.name);
-        }
-
-        else if(Input.GetKeyDown(KeyCode.Mouse0) && !reloading)
-        {
-            gunAnimator.SetBool("zoomShot", true);
-        }
-
-        else if(Input.GetKeyUp(KeyCode.Mouse0) && !reloading)
-        {
-            gunAnimator.SetBool("zoomShot", false);
         }
 
         if (courontinePauser == false)
