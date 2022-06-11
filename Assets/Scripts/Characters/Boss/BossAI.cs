@@ -7,11 +7,11 @@ public class BossAI : MonoBehaviour
 {
     [SerializeField] Transform target;
     [SerializeField] float chaseRange = 10f;
-    [SerializeField] float attackRange = 2f;
     NavMeshAgent navMeshAgent;
     Animator animator;
     int isWalkingHash;
     bool isChasing=false;
+    bool isProvoked = false;
     float distanceToTarget = Mathf.Infinity;
     void Start()
     {
@@ -30,22 +30,36 @@ public class BossAI : MonoBehaviour
     }
     void CheckForTarget(){
         distanceToTarget = Vector3.Distance(target.position,transform.position);
-        if (distanceToTarget < chaseRange && distanceToTarget > attackRange)
+        if (isProvoked)
         {
-            //Debug.Log("Chasing Player");
-            navMeshAgent.isStopped = false;
-            navMeshAgent.SetDestination(target.position);
-            isChasing = true;
+            EngageTarget();
+        }
+        else if (distanceToTarget < chaseRange)
+        {
+            isProvoked = true;
+            
         }  
-        else if (distanceToTarget < attackRange)
+    }
+    void EngageTarget(){
+        if (distanceToTarget >= navMeshAgent.stoppingDistance)
         {
-            navMeshAgent.isStopped = true;
-            isChasing = false;
+            ChaseTarget();
         }
-        else
+        if (distanceToTarget < navMeshAgent.stoppingDistance)
         {
-            isChasing = false;
+            AttackTarget();
         }
+    }
+    void AttackTarget(){
+        navMeshAgent.isStopped = true;
+        isChasing = false;
+        Debug.Log("Attacking");
+    }
+    void ChaseTarget(){
+        //Debug.Log("Chasing Player");
+        navMeshAgent.isStopped = false;
+        navMeshAgent.SetDestination(target.position);
+        isChasing = true;
     }
     void HandleWalking(){
         bool isWalking = animator.GetBool(isWalkingHash);
