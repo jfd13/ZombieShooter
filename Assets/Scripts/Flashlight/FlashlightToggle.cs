@@ -48,7 +48,7 @@ public class FlashlightToggle : MonoBehaviour
 
     public void Timer()
     {
-        float intensityNumber = Random.Range(0f, 1f);
+        float intensityNumber = Mathf.PerlinNoise(Time.time,Time.time*Random.Range(0f, 1f));
 
         if (isFlashLightActive == true)
         {
