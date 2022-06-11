@@ -11,7 +11,7 @@ public class Weapon : MonoBehaviour
     public GameObject reloadingText;
     public TextMeshProUGUI ammoText;
     public AudioSource shootingSound;
-    public Animator animator;
+    public Animator gunAnimator;
     public GameObject bulletHole;
     public ParticleSystem muzzle;
 
@@ -19,16 +19,18 @@ public class Weapon : MonoBehaviour
     public int startingAmmoAmount;
     public int damage;
     public int bulletsPerTap;
-    public int bulletShots;
+    private int bulletShots;
 
     [Header("Floats")]
     public float tapFireRate;
     public float holdFireRate;
-    public float spread;
+    public float bulletSpread;
+    public float spreadWhileZoomed;
     public float reloadingTime;
     public float bulletRange;
     public float timeBetweenShots;
     private float lastShot;
+    private float spread;
 
     [Header("Bools")]
     public bool holdToShoot;
@@ -36,6 +38,7 @@ public class Weapon : MonoBehaviour
     bool canShoot;
     bool courontinePauser;
     bool tapShooting;
+    bool shootingWhileZooming;
 
     // No changing values/bools
     [Header("Info")]
@@ -51,24 +54,28 @@ public class Weapon : MonoBehaviour
         ammoAmount = startingAmmoAmount;
         // Sets the reloading text to false
         reloadingText.SetActive(false);
+        // Sets the spread value
+        spread = bulletSpread;
     }
 
     IEnumerator TapShotBool()
     {
         yield return new WaitForSeconds(0.20f);
-        animator.SetBool("shot", false);
+        gunAnimator.SetBool("shot", false);
         courontinePauser = false;
     }
 
     IEnumerator HoldShotBool()
     {
         yield return new WaitForSeconds(0.01f);
-        animator.SetBool("shot", false);
+        gunAnimator.SetBool("shot", false);
         courontinePauser = false;
     }
 
     void Update()
     {
+        Zoom();
+
         // Holding guns
         if (Input.GetKey(KeyCode.Mouse0) && holdToShoot && canShoot && !reloading)
         {
@@ -134,7 +141,7 @@ public class Weapon : MonoBehaviour
             shootingSound.Play();
 
             // Shooting animation
-            animator.SetBool("shot", true);
+            gunAnimator.SetBool("shot", true);
 
             // Play the muzzle particle
             muzzle.Play();
@@ -196,7 +203,7 @@ public class Weapon : MonoBehaviour
         shootingSound.Play();
 
         // Shooting animation
-        animator.SetBool("shot", true);
+        gunAnimator.SetBool("shot", true);
 
         // Play the muzzle particle
         muzzle.Play();
@@ -250,6 +257,21 @@ public class Weapon : MonoBehaviour
             ammoAmount = 0;
             reload = true;
             canShoot = false;
+        }
+    }
+    
+    void Zoom()
+    {
+        if(Input.GetKeyDown(KeyCode.Mouse1) && !reloading)
+        {
+            gunAnimator.SetBool("zoom", true);
+            spread = spreadWhileZoomed;
+        }
+
+        if(Input.GetKeyUp(KeyCode.Mouse1) && !reloading)
+        {
+            gunAnimator.SetBool("zoom", false);
+            spread = bulletSpread;
         }
     }
 
