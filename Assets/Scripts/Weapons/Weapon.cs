@@ -158,6 +158,10 @@ public class Weapon : MonoBehaviour
                     Instantiate(bulletHole, hit.point + hit.normal * 0.0001f, Quaternion.LookRotation(-hit.normal));
                     bulletHole.transform.up = hit.normal;
                 }
+                BossHealth bossHealth = hit.collider.GetComponent<BossHealth>();
+                if(bossHealth != null){
+                    // decrease health
+                }
 
                 // prints out the shot object's name
                 print(hit.collider.gameObject.name);
